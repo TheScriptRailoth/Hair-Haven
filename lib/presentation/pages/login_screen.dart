@@ -14,8 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             Padding(
               padding: EdgeInsets.all(34.w),
@@ -23,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset('assets/main_logo.png'),
-                  SizedBox(height: 50.h,),
+                  SizedBox(height: 30.h,),
                   Text("Welcome Back, \nSign in into your account",
                     style: TextStyle(
                         fontWeight: FontWeight.w600, fontSize: 22.sp
@@ -95,13 +94,58 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 50.h,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                        width: 80.h,
                         height: 2,
-                        color: Colors.black, 
-                      )
-
+                        color: Colors.black,
+                      ),
+                      Text("OR", style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600
+                      ),),
+                      Container(
+                        width: 80.h,
+                        height: 2,
+                        color: Colors.black,
+                      ),
                     ],
+                  ),
+                  SizedBox(height: 50.h,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Sign in with", style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400
+                      ),)
+                    ],
+                  ),
+                  SizedBox(height: 20.h,),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 65.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                            'assets/apple-logo.png',
+                            width: 27.w,
+                            height: 27.h,
+                        ),
+                        Image.asset(
+                            'assets/google.png',
+                            width: 27.w,
+                            height: 27.h,
+                        ),
+                        Image.asset(
+                            'assets/facebook.png',
+                            width: 27.w,
+                            height: 27.h,
+                        ),
+
+                      ],
+                    ),
                   )
                 ],
               )
