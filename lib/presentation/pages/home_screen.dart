@@ -175,7 +175,36 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                
+                SizedBox(height: 30.h,),
+                Center(
+                  child: TextButton(onPressed: (){},
+                      child: Text("All Services", style: TextStyle( fontWeight: FontWeight.w500, fontSize: 16.sp, color: Colors.black),),
+
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      side: const BorderSide(
+                        color: Colors.grey,
+                        width: 1,
+                        style: BorderStyle.solid
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                      minimumSize: Size(250, 40)
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.h,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text("Barbers Available",
+                    style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w400
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
               ],
             ),
           ),
