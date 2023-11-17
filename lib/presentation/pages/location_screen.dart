@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/theme/mycolors.dart';
+import 'home_screen.dart';
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
 
@@ -58,7 +59,7 @@ class _LocationScreenState extends State<LocationScreen> {
               child: TextButton(onPressed: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context){
-                      return const LocationScreen();
+                      return const HomeScreen();
                     })
                 );
               },
