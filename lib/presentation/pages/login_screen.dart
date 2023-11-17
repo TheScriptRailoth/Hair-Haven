@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/signup_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -46,25 +47,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 50.h,),
                   VxTextField(
-                    height: 38.h,
+                    height: 50.h,
                     labelStyle: TextStyle(
                       color: Colors.black,
                     ),
                     labelText: 'Email',
                     fillColor: Color(0xffD9D9D9),
                     cursorColor: MyColors.primaryColor,
-                    contentPaddingLeft: 10,
+                    borderRadius: 10,
+                    borderType: VxTextFieldBorderType.roundLine,
                   ),
                   SizedBox(height: 30.h,),
                   VxTextField(
-                    height: 38.h,
+                    height: 50.h,
                     labelStyle: TextStyle(
                       color: Colors.black,
                     ),
                     labelText: 'Password',
                     fillColor: Color(0xffD9D9D9),
                     cursorColor: MyColors.primaryColor,
-                    contentPaddingLeft: 10,
+                    borderRadius: 10,
+                    borderType: VxTextFieldBorderType.roundLine,
+                    isPassword: true,
+                    obscureText: true,
                   ),
                   SizedBox(height: 5.h,),
                   Row(
@@ -78,7 +83,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: 30.h,),
-                  TextButton(onPressed: (){},
+                  TextButton(onPressed: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context){
+                        return const SignUpScreen();
+                      })
+                    );
+                  },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
                       minimumSize: MaterialStateProperty.all(Size(321.w, 38.h)),
