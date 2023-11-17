@@ -205,6 +205,112 @@ class _HomeScreenState extends State<HomeScreen> {
                     textAlign: TextAlign.left,
                   ),
                 ),
+                SizedBox(height: 30.h,),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/barber1.png'),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text("Robert Fox", style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/barber2.png'),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text("Jacob Jones", style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/barber3.png'),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text("Albert Flores", style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/barber4.png'),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text("Ralph Jones", style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/barber1.png'),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text("Ralph Jones", style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,)
+
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),
