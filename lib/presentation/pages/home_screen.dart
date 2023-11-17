@@ -21,12 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
           child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(top: 20, left: 15, right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
@@ -60,76 +60,123 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  SizedBox(height: 25.h,),
-                  SizedBox(
+                ),
+                SizedBox(height: 25.h,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal:10),
+                  child: SizedBox(
                     height: 130.h,
                     child: PageView.builder(
                         itemBuilder: (context, index){
-                          return AspectRatio(
-                            aspectRatio: 340/130,
-                            child: Container(
-                              child: Banners[index],
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: AspectRatio(
+                              aspectRatio: 340/130,
+                              child: Container(
+                                child: Banners[index],
+                              ),
                             ),
                           );
                         },
                         itemCount: Banners.length,
                     ),
                   ),
-                  SizedBox(height: 20.h,),
-                  Text("What are you looking for?",
+                ),
+                SizedBox(height: 20.h,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text("What are you looking for?",
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w500
                   ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 10.h,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          height:70.h,
-                          width: 70.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffE2F5FA)
+                ),
+                SizedBox(height: 10.h,),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:70.h,
+                            width: 70.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/haircut.png'),
                           ),
-                          child: Image.asset('assets/images/haircut.png'),
-                        ),
-                        Container(
-                          height:70.h,
-                          width: 70.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffE2F5FA)
+                          Text("Haircut", style: TextStyle(
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:70.h,
+                            width: 70.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/manicure.png'),
                           ),
-                          child: Image.asset('assets/images/manicure.png'),
-                        ),
-                        Container(
-                          height:70.h,
-                          width: 70.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffE2F5FA)
+                          Text("Nails", style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:70.h,
+                            width: 70.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/facial.png'),
                           ),
-                          child: Image.asset('assets/images/facial.png'),
-                        ),
-                        Container(
-                          height:70.h,
-                          width: 70.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffE2F5FA)
+                          Text("Facial", style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,),
+                      Column(
+                        children: [
+                          Container(
+                            height:70.h,
+                            width: 70.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffE2F5FA)
+                            ),
+                            child: Image.asset('assets/images/coloring.png'),
                           ),
-                          child: Image.asset('assets/images/coloring.png'),
-                        ),
+                          Text("Coloring", style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400
+                          ),)
+                        ],
+                      ),
+                      SizedBox(width: 20.h,)
 
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                    ],
+                  ),
+                ),
+                
+              ],
             ),
           ),
       ),
