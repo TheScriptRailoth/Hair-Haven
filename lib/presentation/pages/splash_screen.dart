@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hair_haven/presentation/pages/login_screen.dart';
+
+import 'auth_screen.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -13,10 +16,17 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-          child: Image.asset(
-            'assets/main_logo.png',
-            width: 130.w,
-            height: 31.h,
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return LoginScreen();
+              }));
+            },
+            child: Image.asset(
+              'assets/main_logo.png',
+              width: 130.w,
+              height: 31.h,
+            ),
           ),
       ),
     );

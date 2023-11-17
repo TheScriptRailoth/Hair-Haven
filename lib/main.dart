@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/splash_screen.dart';
 
 void main() {
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           home: child,
+          theme: ThemeData(
+            textTheme: GoogleFonts.robotoTextTheme(
+              Theme.of(context).textTheme,
+            )
+          ),
         );
       },
       child: SplashScreen(),
