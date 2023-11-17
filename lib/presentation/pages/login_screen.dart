@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/location_screen.dart';
 import 'package:hair_haven/presentation/pages/signup_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 class LoginScreen extends StatefulWidget {
@@ -37,11 +38,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
                         ),),
-                        Text("Signup", style: TextStyle(
-                          fontSize: 14.sp,
-                          color: MyColors.primaryColor,
-                          fontWeight: FontWeight.w500,
-                        ),)
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return SignUpScreen();
+                            }));
+                          },
+                          child: Text("Signup", style: TextStyle(
+                            fontSize: 14.sp,
+                            color: MyColors.primaryColor,
+                            fontWeight: FontWeight.w500,
+                          ),),
+                        )
                       ],
                     ),
                   ),
@@ -86,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(onPressed: (){
                     Navigator.push(context,
                       MaterialPageRoute(builder: (context){
-                        return const SignUpScreen();
+                        return const LocationScreen();
                       })
                     );
                   },
