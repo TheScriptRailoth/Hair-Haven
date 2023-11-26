@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/salon_page.dart';
 import 'package:hair_haven/presentation/widgets/search_result_widget.dart';
 
 import '../../core/theme/mycolors.dart';
@@ -84,12 +85,19 @@ class _SearchScreenState extends State<SearchScreen> {
                   location: "6391 Elgin St. Celina, Delaware",
                   image: 'assets/images/hot_spot_image.png'),
               SizedBox(height: 20.h,),
-              SearchResultWidget(
-                  title: "Premium Salon",
-                  distance: "5KM",
-                  rating: "4.5",
-                  location: "6391 Elgin St. Celina, Delaware",
-                  image:'assets/images/premium_salon.png'),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return SalonPage();
+                  }));
+                },
+                child: SearchResultWidget(
+                    title: "Premium Salon",
+                    distance: "5KM",
+                    rating: "4.5",
+                    location: "6391 Elgin St. Celina, Delaware",
+                    image:'assets/images/premium_salon.png'),
+              ),
               SizedBox(height: 20.h,),
               SearchResultWidget(
                   title: "Twisted Starlets Hair Salon",

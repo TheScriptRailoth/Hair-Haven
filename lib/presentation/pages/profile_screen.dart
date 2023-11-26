@@ -143,6 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
                         ),
+                        indicatorColor: MyColors.primaryColor,
                         tabs: [
                           Tab(text: 'Description', ),
                           Tab(text: 'Review & Rating'),
@@ -150,10 +151,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       Container(
-                        height: 400.h, // Adjust the height as needed
+                        height: 400.h,
                         child: TabBarView(
                           children: [
-                            // Description Content
                             SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -477,7 +477,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ],
                               ),
                             ),
-
                           ],
                         ),
                       ),
