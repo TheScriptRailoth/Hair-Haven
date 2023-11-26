@@ -6,6 +6,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/home_screen.dart';
 import 'package:hair_haven/presentation/pages/profile_screen.dart';
+import 'package:hair_haven/presentation/pages/search_screen.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
@@ -39,5 +40,5 @@ class BottomNavBar extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex= 0.obs;
 
-  final screens=[HomeScreen(), HomeScreen(), ProfileScreen(), ProfileScreen(), ProfileScreen()];
+  final screens=[HomeScreen(), SearchScreen(), ProfileScreen(), ProfileScreen(), ProfileScreen()];
 }
