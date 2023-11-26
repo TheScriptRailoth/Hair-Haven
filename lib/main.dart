@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/profile_screen.dart';
 import 'package:hair_haven/presentation/pages/splash_screen.dart';
 
 void main() {

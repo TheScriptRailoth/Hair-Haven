@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hair_haven/presentation/widgets/bottom_nav_bar.dart';
 
 import '../../core/theme/mycolors.dart';
 import 'home_screen.dart';
@@ -59,7 +60,7 @@ class _LocationScreenState extends State<LocationScreen> {
               child: TextButton(onPressed: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context){
-                      return const HomeScreen();
+                      return BottomNavBar();
                     })
                 );
               },

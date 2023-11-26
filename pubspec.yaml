@@ -33,6 +33,10 @@ dependencies:
   velocity_x: ^4.1.1
   flutter:
     sdk: flutter
+  google_nav_bar: ^5.0.6
+  persistent_bottom_nav_bar: ^4.0.2
+  flutter_rating_bar:
+  get: ^4.6.6
 
 
   # The following adds the Cupertino Icons font to your application.

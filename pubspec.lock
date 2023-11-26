@@ -94,6 +94,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -112,6 +120,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get:
+    dependency: "direct main"
+    description:
+      name: get
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.6"
   google_fonts:
     dependency: "direct main"
     description:
@@ -120,6 +136,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  google_nav_bar:
+    dependency: "direct main"
+    description:
+      name: google_nav_bar
+      sha256: "1c8e3882fa66ee7b74c24320668276ca23affbd58f0b14a24c1e5590f4d07ab0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.6"
   http:
     dependency: transitive
     description:
@@ -232,6 +256,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
+  persistent_bottom_nav_bar:
+    dependency: "direct main"
+    description:
+      name: persistent_bottom_nav_bar
+      sha256: b8dc9cfc1ea36cef1a55c059c151d8ec8aaa28da4f0dcd224a3b3c0bed8bf130
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
   platform:
     dependency: transitive
     description:
@@ -244,10 +276,10 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: da3fdfeccc4d4ff2da8f8c556704c08f912542c5fb3cf2233ed75372384a034d
+      sha256: f4f88d4a900933e7267e2b353594774fc0d07fb072b47eedcd5b54e1ea3269f8
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.6"
+    version: "2.1.7"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -321,10 +353,10 @@ packages:
     dependency: "direct main"
     description:
       name: velocity_x
-      sha256: "41734c40f1609aaafa5337fd9a9e7e9aaf3464dce8ee2cad18be4226b184e5ca"
+      sha256: "38585b8ed87c17ccb42a5c13d55bdafdc65e7cd3f41dceb61c38714c758fa228"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.1.2"
   vxstate:
     dependency: transitive
     description:
@@ -359,4 +391,4 @@ packages:
     version: "1.0.3"
 sdks:
   dart: ">=3.1.5 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"
