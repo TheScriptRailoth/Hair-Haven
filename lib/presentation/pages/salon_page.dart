@@ -12,8 +12,126 @@ class SalonPage extends StatefulWidget {
 }
 
 class _SalonPageState extends State<SalonPage> {
+
   @override
   Widget build(BuildContext context) {
+
+    List<String> titles = [
+      'Hair & Style',
+      'Skin Care',
+      'Straightening',
+      'Healthy Hair Spa',
+      'Hair Color',
+    ];
+    int selectedTileIndex = -1;
+    List<Widget Function()> contentBuilders = [
+          () => Column(
+        children: [
+          Container(
+            height: 1,
+            width: MediaQuery.sizeOf(context).width,
+            color: Colors.grey.withOpacity(0.5),
+          ),
+          Container(
+            height: 100.h,
+            width: MediaQuery.sizeOf(context).width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12.sp
+                    ),),
+                    SizedBox(height: 5.h,),
+                    Text("Established in the year 2009, The Roose Parlour &\nSpa is a popular.",
+                    style: GoogleFonts.lato(
+                      color: Colors.grey,
+                      fontSize: 10.sp,
+                      fontWeight: FontWeight.w400
+                    ),),
+                    SizedBox(height: 5.h,),
+                    Text("\$65", style: GoogleFonts.lato(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16.sp,
+                    ),),
+
+                  ],
+                ),
+                Container(
+                  height: 81.h,
+                  width: 76.w,
+                  child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                )
+              ],
+            ),
+          ),
+          Container(
+            height: 1,
+            width: MediaQuery.sizeOf(context).width,
+            color: Colors.grey.withOpacity(0.5),
+          ),
+          Container(
+            height: 100.h,
+            width: MediaQuery.sizeOf(context).width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12.sp
+                    ),),
+                    SizedBox(height: 5.h,),
+                    Text("Established in the year 2009, The Roose Parlour &\nSpa is a popular.",
+                      style: GoogleFonts.lato(
+                          color: Colors.grey,
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400
+                      ),),
+                    SizedBox(height: 5.h,),
+                    Text("\$65", style: GoogleFonts.lato(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16.sp,
+                    ),),
+
+                  ],
+                ),
+                Container(
+                  height: 81.h,
+                  width: 76.w,
+                  child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+          () => Column(
+        children: [
+          Text('Content for Item 2'),
+        ],
+      ),
+          () => Container(
+            child: Text("Content of itme 3"),
+      ),
+          () => Container(
+            child: Text("Content of itme 4"),
+      ),
+          () => Container(
+            child: Text("Content of itme 5"),
+      ),
+
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -185,14 +303,31 @@ class _SalonPageState extends State<SalonPage> {
                         height: 400.h,
                         child: TabBarView(
                           children: [
-                            SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 20.h,),
-                                ],
+                            ListView.builder(
+                                itemCount: titles.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ExpansionTile(
+                                    title: Text(titles[index], style: GoogleFonts.lato(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: selectedTileIndex == index ? MyColors.primaryColor : Colors.black,
+                                      ),
+                                    ),
+                                    iconColor: MyColors.primaryColor,
+                                    onExpansionChanged: (bool isExpanded){
+                                      setState(() {
+                                        selectedTileIndex = isExpanded ? index : -1;
+                                      });
+                                    },
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                        child: contentBuilders[index](),
+                                      ),
+                                    ],
+                                  );
+                                },
                               ),
-                            ),
                             SingleChildScrollView(
                               scrollDirection: Axis.vertical,
                               child: Column(
