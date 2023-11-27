@@ -62,10 +62,41 @@ class _SalonPageState extends State<SalonPage> {
 
                   ],
                 ),
-                Container(
-                  height: 81.h,
-                  width: 76.w,
-                  child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                Stack(
+                  children: [
+                    Container(
+                      height: 81.h,
+                      width: 76.w,
+                      child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 50.h,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(width: 8.w,),
+                            Container(
+                              height: 20.h,
+                              width: 60.w,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5.r)
+                              ),
+                              child: Center(
+                                child: Text("ADD", style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 9.sp
+                                ),),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
                 )
               ],
             ),
@@ -105,10 +136,41 @@ class _SalonPageState extends State<SalonPage> {
 
                   ],
                 ),
-                Container(
-                  height: 81.h,
-                  width: 76.w,
-                  child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                Stack(
+                  children: [
+                    Container(
+                      height: 81.h,
+                      width: 76.w,
+                      child: Image.asset('assets/images/hair_cut_and_blow.png'),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 50.h,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(width: 8.w,),
+                            Container(
+                              height: 20.h,
+                              width: 60.w,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                borderRadius: BorderRadius.circular(5.r)
+                              ),
+                              child: Center(
+                                child: Text("ADD", style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 9.sp
+                                ),),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
                 )
               ],
             ),
