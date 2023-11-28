@@ -430,6 +430,7 @@ class _SalonPageState extends State<SalonPage> {
                       ),
                       Container(
                         height: 400.h,
+                        width: MediaQuery.of(context).size.width,
                         child: TabBarView(
                           children: [
                             ListView.builder(
@@ -450,7 +451,7 @@ class _SalonPageState extends State<SalonPage> {
                                     },
                                     children: <Widget>[
                                       Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                        padding: EdgeInsets.symmetric(horizontal: 16.w),
                                         child: contentBuilders[index](),
                                       ),
                                     ],
