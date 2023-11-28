@@ -191,9 +191,7 @@ class _SalonPageState extends State<SalonPage> {
           () => Container(
             child: Text("Content of itme 5"),
       ),
-
     ];
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -298,53 +296,122 @@ class _SalonPageState extends State<SalonPage> {
             Container(
               height: 1.5,
               width: MediaQuery.sizeOf(context).width,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.2),
             ),
-            SizedBox(height: 10.h,),
+            SizedBox(height: 20.h,),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  SizedBox(width: 20.w,),
+                  SizedBox(width: 30.w,),
                   Container(
-                    height:75.h,
-                    width: 195.w,
-                    child: Stack(
+                    height:38.h,
+                    width: 132.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.r)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/coupon_banner.png', fit: BoxFit.contain,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Row(
-                              children: [
-                                SizedBox(width: 10.w,),
-                                Container(
-                                    height:15,
-                                    width: 15,
-                                    child: Image.asset('assets/images/Discount.png', fit: BoxFit.contain,),
-                                ),
-                                Image.asset('assets/images/off_percent.png')
-                              ],
-                            ),
-                            Image.asset('assets/images/coupon_code.png')
+                            Image.asset('assets/images/Discount.png',
+                            height: 12.h,
+                            width: 12.w, fit: BoxFit.cover,),
+                            SizedBox(width: 5.w,),
+                            Image.asset('assets/images/off_percent.png',
+                            fit: BoxFit.cover,
+                              height: 11.h,
+                            )
                           ],
-                        )
+                        ),
+                        SizedBox(height: 3.h,),
+                        Image.asset('assets/images/coupon_code.png',
+                        fit: BoxFit.cover,
+                        height: 8.h,)
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(width: 20.w,),
+                  Container(
+                    height:38.h,
+                    width: 132.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.r)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/Discount.png',
+                              height: 12.h,
+                              width: 12.w, fit: BoxFit.cover,),
+                            SizedBox(width: 5.w,),
+                            Image.asset('assets/images/off_percent.png',
+                              fit: BoxFit.cover,
+                              height: 11.h,
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 3.h,),
+                        Image.asset('assets/images/coupon_code.png',
+                          fit: BoxFit.cover,
+                          height: 8.h,)
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 20.w,),
+                  Container(
+                    height:38.h,
+                    width: 132.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.r)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/Discount.png',
+                              height: 12.h,
+                              width: 12.w, fit: BoxFit.cover,),
+                            SizedBox(width: 5.w,),
+                            Image.asset('assets/images/off_percent.png',
+                              fit: BoxFit.cover,
+                              height: 11.h,
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 3.h,),
+                        Image.asset('assets/images/coupon_code.png',
+                          fit: BoxFit.cover,
+                          height: 8.h,)
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-            SizedBox(height: 10.h,),
+            SizedBox(height: 20.h,),
             Container(
               height: 1.5,
               width: MediaQuery.sizeOf(context).width,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.2),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0.w),
               child: DefaultTabController(
+                initialIndex: 1,
                   length: 3,
                   child: Column(
                     children: [
