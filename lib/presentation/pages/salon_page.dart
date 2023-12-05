@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/select_services_page.dart';
 import 'package:hair_haven/presentation/widgets/reviewer_widget.dart';
 class SalonPage extends StatefulWidget {
   const SalonPage({super.key});
@@ -209,7 +210,11 @@ class _SalonPageState extends State<SalonPage> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.white)
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return SelectServicesPage();
+                }));
+              },
               child: Text("Book Now", style: GoogleFonts.lora(
                 color: Colors.black
               ),),
