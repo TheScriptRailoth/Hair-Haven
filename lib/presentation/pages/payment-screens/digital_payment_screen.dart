@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/payment-screens/amount_screen.dart';
 class DigitalPaymentScreen extends StatefulWidget {
   const DigitalPaymentScreen({super.key});
 
@@ -140,7 +141,11 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                   height: 48.h,
                   width: 344.w,
                   child: TextButton(
-                    onPressed: (){}, child: Text("Next", style: GoogleFonts.lora(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return PaymentAmountScreen();
+                      }));
+                    }, child: Text("Next", style: GoogleFonts.lora(
                         fontWeight: FontWeight.w600,
                         fontSize: 18.sp,
                         color: Colors.white
@@ -203,7 +208,11 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                       height: 48.h,
                       width: 344.w,
                       child: TextButton(
-                        onPressed: (){}, child: Text("Next", style: GoogleFonts.lora(
+                        onPressed: (){
+                          Navigator.push(context,MaterialPageRoute(builder: (context){
+                            return PaymentAmountScreen();
+                          }));
+                        }, child: Text("Next", style: GoogleFonts.lora(
                           fontWeight: FontWeight.w600,
                           fontSize: 18.sp,
                           color: Colors.white
@@ -231,15 +240,12 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
       ),
     );
   }
-
-
   Widget buildOption(String title, int value, String img, String card_number) {
     return TextButton(
       onPressed: () {
         setState(() {
           selectedOption = value;
         });
-        closeSlide();
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,7 +288,6 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
               setState(() {
                 selectedOption = val!;
               });
-              closeSlide();
             },
             activeColor: MyColors.primaryColor,
             // visualDensity: VisualDensity.standard.copyWith(vertical: -2, horizontal: -2),
