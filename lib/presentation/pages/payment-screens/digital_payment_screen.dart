@@ -12,7 +12,7 @@ class DigitalPaymentScreen extends StatefulWidget {
 class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
 
   bool showHalfScreen = false;
-
+  int selectedOption = 0;
   void toggleAnimation() {
     setState(() {
       showHalfScreen = !showHalfScreen;
@@ -194,13 +194,108 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w400,
                     ),),
-                    
+                    SizedBox(height: 20.h),
+                    buildOption("Paypal", 1, 'assets/images/paypal.png', '1234 - 1710 - 9876'),
+                    SizedBox(height: 20.h),
+                    buildOption("MasterCard", 2,'assets/images/master_card.png', '1234 - 666 - 9876'),
+                    Spacer(),
+                    Container(
+                      height: 48.h,
+                      width: 344.w,
+                      child: TextButton(
+                        onPressed: (){}, child: Text("Next", style: GoogleFonts.lora(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18.sp,
+                          color: Colors.white
+                      ),),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        color: MyColors.primaryColor,
+                                        width: 1
+                                    ),
+                                    borderRadius: BorderRadius.circular(10.r)
+                                )
+                            )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+
+  Widget buildOption(String title, int value, String img, String card_number) {
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          selectedOption = value;
+        });
+        closeSlide();
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                  height: 32.h,
+                  width: 38.w,
+                  child: Image.asset(img, fit: BoxFit.contain,)),
+              SizedBox(width: 10.w,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: GoogleFonts.lora(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18.sp,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    card_number,
+                    style: GoogleFonts.dmSans(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                      color: Color(0xffAAAAAA),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(width: 10.w,),
+          Radio<int>(
+            value: value,
+            groupValue: selectedOption,
+            onChanged: (int? val) {
+              setState(() {
+                selectedOption = val!;
+              });
+              closeSlide();
+            },
+            activeColor: MyColors.primaryColor,
+            // visualDensity: VisualDensity.standard.copyWith(vertical: -2, horizontal: -2),
+          ),
+        ],
+      ),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+        ),
       ),
     );
   }
