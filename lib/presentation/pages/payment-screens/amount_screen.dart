@@ -38,7 +38,6 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                 color: Color(0xff3A3A3A)
               ),),
               SizedBox(height: 20.h,),
-              Text
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/digital_payment_screen.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/test.dart';
 import 'package:hair_haven/presentation/pages/profile_screen.dart';
@@ -25,13 +26,16 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: child,
           theme: ThemeData(
+            buttonTheme: ButtonThemeData(
+              splashColor: MyColors.primaryColor.withOpacity(0.1),
+            ),
             textTheme: GoogleFonts.robotoTextTheme(
               Theme.of(context).textTheme,
             )
           ),
         );
       },
-      child: DigitalPaymentScreen()
+      child: SplashScreen()
     );
   }
 }

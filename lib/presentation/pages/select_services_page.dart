@@ -5,17 +5,17 @@ import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/schedule_appointment_page.dart';
 class SelectServicesPage extends StatefulWidget {
   const SelectServicesPage({super.key});
-
   @override
   State<SelectServicesPage> createState() => _SelectServicesPageState();
 }
-
 class _SelectServicesPageState extends State<SelectServicesPage> {
+  Map<int, String> selectedOptions = {};
   String selectedValue = '';
+  var selectedOption;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -63,8 +63,21 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
               ),
             ),
             SizedBox(height: 20.h,),
-            Spacer(),
             Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                child: Column(
+                  children: [
+                    buildOption('VLCC', '\$150', 1),
+                    buildOption('Shahnaz Hussain', '\$185', 2),
+                    buildOption('Lotus', '\$135', 3),
+                    buildOption('Aroma', '\$155', 4),
+                    buildOption('TONY MOLY', '\$195', 5),
+                  ],
+                ),
+            ),
+            Spacer(),
+            ...(selectedOptions.isNotEmpty
+            ? [Padding(
               padding: EdgeInsets.symmetric(vertical: 20.w),
               child: Container(
                 height: 45.h,
@@ -75,17 +88,88 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                   }));
                 }, child: Text(
                   "Continue", style: GoogleFonts.lato(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white
                 ),
                 ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(MyColors.primaryColor)
-                ),),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(MyColors.primaryColor)
+                  ),),
               ),
-            )
+            )]:[]),
           ],
+        ),
+      ),
+    );
+  }
+  Widget buildOption(String title, String price, int value) {
+    bool isSelected = selectedOptions.containsKey(value);
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          if (isSelected) {
+            selectedOptions.remove(value); // Remove if already selected
+          } else {
+            selectedOptions[value] = price; // Add to map with price
+          }
+        });
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.lato(
+              fontWeight: FontWeight.w400,
+              fontSize: 16.sp,
+              color: Colors.black,
+            ),
+          ),
+          Row(
+            children: [
+              Text(
+                price,
+                style: GoogleFonts.lato(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16.sp,
+                  color: Colors.black,
+                ),
+              ),
+              Checkbox(
+                value: isSelected,
+                onChanged: (bool? checked) {
+                  setState(() {
+                    if (checked != null) {
+                      if (checked) {
+                        selectedOptions[value] = price; // Add to map with price
+                      } else {
+                        selectedOptions.remove(value); // Remove from map
+                      }
+                    }
+                  });
+                },
+                shape: CircleBorder(),
+                activeColor: MyColors.primaryColor,
+              ),
+            ],
+          ),
+        ],
+      ),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.pressed)) {
+              return MyColors.primaryColor.withOpacity(0.1);
+            }
+            return Colors.grey.withOpacity(0.1);
+          },
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
         ),
       ),
     );

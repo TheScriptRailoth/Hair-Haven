@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/core/theme/mycolors.dart';
 class ScheduleAppointmentScreen extends StatefulWidget {
   const ScheduleAppointmentScreen({super.key});
 
@@ -14,6 +15,9 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
     return Scaffold(
       backgroundColor: Colors.white ,
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: MyColors.primaryColor
+        ),
         elevation: 0.0,
         backgroundColor: Colors.white,
         title: Text("Schedule Appoinment",
@@ -23,6 +27,11 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
           color: Colors.black
         ),),
         centerTitle: true,
+      ),
+      body: Column(
+        children: [
+          
+        ],
       ),
     );
   }
