@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hair_haven/presentation/widgets/bottom_nav_bar.dart';
 
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 import 'home_screen.dart';
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});

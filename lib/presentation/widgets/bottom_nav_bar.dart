@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
-import 'package:hair_haven/presentation/pages/home_screen.dart';
-import 'package:hair_haven/presentation/pages/profile_screen.dart';
-import 'package:hair_haven/presentation/pages/search_screen.dart';
+import 'package:hair_haven/presentation/pages/main_screens/home_screen.dart';
+import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
+import 'package:hair_haven/presentation/pages/main_screens/profile_screen.dart';
+import 'package:hair_haven/presentation/pages/main_screens/search_screen.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
@@ -40,5 +41,5 @@ class BottomNavBar extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex= 0.obs;
 
-  final screens=[HomeScreen(), SearchScreen(), ProfileScreen(), ProfileScreen(), ProfileScreen()];
+  final screens=[HomeScreen(), SearchScreen(), SearchScreen(), SearchScreen(), ProfileScreen()];
 }

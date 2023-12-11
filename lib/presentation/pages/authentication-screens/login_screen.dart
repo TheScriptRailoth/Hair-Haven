@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
-import 'package:hair_haven/presentation/pages/location_screen.dart';
-import 'package:hair_haven/presentation/pages/signup_screen.dart';
+import 'package:hair_haven/presentation/pages/main_screens/location_screen.dart';
+import 'package:hair_haven/presentation/pages/authentication-screens/signup_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

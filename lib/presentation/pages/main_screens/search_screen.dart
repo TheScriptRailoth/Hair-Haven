@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/salon_page.dart';
 import 'package:hair_haven/presentation/widgets/search_result_widget.dart';
 
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 

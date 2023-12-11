@@ -6,14 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../core/theme/mycolors.dart';
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class BarberProfileScreen extends StatefulWidget {
+  const BarberProfileScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<BarberProfileScreen> createState() => _BarberProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _BarberProfileScreenState extends State<BarberProfileScreen> {
 
  double rating=4.8;
   @override

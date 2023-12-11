@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hair_haven/presentation/pages/login_screen.dart';
+import 'package:hair_haven/presentation/pages/authentication-screens/login_screen.dart';
 
-import 'auth_screen.dart';
+import 'authentication-screens/auth_screen.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

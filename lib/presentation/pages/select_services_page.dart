@@ -9,7 +9,7 @@ class SelectServicesPage extends StatefulWidget {
   State<SelectServicesPage> createState() => _SelectServicesPageState();
 }
 class _SelectServicesPageState extends State<SelectServicesPage> {
-  Map<int, String> selectedOptions = {};
+  Map<int, String> selectedPrice = {};
   String selectedValue = '';
   var selectedOption;
   @override
@@ -76,7 +76,7 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                 ),
             ),
             Spacer(),
-            ...(selectedOptions.isNotEmpty
+            ...(selectedPrice.isNotEmpty
             ? [Padding(
               padding: EdgeInsets.symmetric(vertical: 20.w),
               child: Container(
@@ -84,7 +84,7 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                 width: 300.w,
                 child: ElevatedButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ScheduleAppointmentScreen();
+                    return ScheduleAppointmentScreen(selectedPrice: selectedPrice);
                   }));
                 }, child: Text(
                   "Continue", style: GoogleFonts.lato(
@@ -104,14 +104,14 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
     );
   }
   Widget buildOption(String title, String price, int value) {
-    bool isSelected = selectedOptions.containsKey(value);
+    bool isSelected = selectedPrice.containsKey(value);
     return TextButton(
       onPressed: () {
         setState(() {
           if (isSelected) {
-            selectedOptions.remove(value); // Remove if already selected
+            selectedPrice.remove(value);
           } else {
-            selectedOptions[value] = price; // Add to map with price
+            selectedPrice[value] = price;
           }
         });
       },
@@ -142,9 +142,9 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                   setState(() {
                     if (checked != null) {
                       if (checked) {
-                        selectedOptions[value] = price; // Add to map with price
+                        selectedPrice[value] = price;
                       } else {
-                        selectedOptions.remove(value); // Remove from map
+                        selectedPrice.remove(value);
                       }
                     }
                   });

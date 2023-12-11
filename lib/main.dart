@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/digital_payment_screen.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/test.dart';
-import 'package:hair_haven/presentation/pages/profile_screen.dart';
+import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
 import 'package:hair_haven/presentation/pages/splash_screen.dart';
 
 void main() {

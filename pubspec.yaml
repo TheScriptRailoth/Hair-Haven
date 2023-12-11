@@ -37,6 +37,9 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   flutter_rating_bar:
   get: ^4.6.6
+  table_calendar: ^3.0.9
+  flare_flutter: ^3.0.2
+  lottie: ^2.7.0
 
 
   # The following adds the Cupertino Icons font to your application.
