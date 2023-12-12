@@ -13,14 +13,12 @@ class _PaymentCompleteScreenState extends State<PaymentCompleteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Lottie.asset(
-              'assets/animation/complete_payment.json',
-              width: 200.w,
-              height: 200.h,
-              fit: BoxFit.cover
-          )
-      ),
-    );
+        body: Container(
+            child: Center(
+              child: Lottie.asset('assets/animation/complete_payment.json'),
+            ),
+          ),
+      );
+
   }
 }

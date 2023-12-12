@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/detailed_user_profile.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/help_center_screen.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/privacy_policy_screen.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -30,45 +33,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
           padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Container(
-                height: 68.h,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  color: MyColors.primaryColor,
-                  borderRadius: BorderRadius.circular(8.r)
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 20.w,),
-                    Container(
-                      width: 43.w,
-                      height: 43.h,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99');
+                  }));
+                },
+                child: Container(
+                  height: 68.h,
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                    color: MyColors.primaryColor,
+                    borderRadius: BorderRadius.circular(8.r)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 20.w,),
+                      Container(
+                        width: 43.w,
+                        height: 43.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset('assets/images/profile_pic.png'),
                       ),
-                      child: Image.asset('assets/images/profile_pic.png'),
-                    ),
-                    SizedBox(width: 20.w,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Swagatika Pradhan", style: GoogleFonts.roboto(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.sp
-                        ), ),
-                        SizedBox(height: 3.h,),
-                        Text("16.8 k Followers | 99 Following", style: GoogleFonts.roboto(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp
-                        ), ),
+                      SizedBox(width: 20.w,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Swagatika Pradhan", style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16.sp
+                          ), ),
+                          SizedBox(height: 3.h,),
+                          Text("16.8 k Followers | 99 Following", style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp
+                          ), ),
 
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 30.h,),
@@ -84,7 +94,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ),
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99');
+                      }));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -249,7 +263,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ),
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return HelpCenterScreen();
+                      }));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -282,7 +300,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ),
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return PrivacyPolicyScreen();
+                      }));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
