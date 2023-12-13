@@ -13,8 +13,39 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  List<ChatMessageWidget> chatMessages=[
+    ChatMessageWidget(
+        userName: 'Pattrick Wand',
+        msg: 'Come now mate! It\'\ s time for the game',
+        profileImg: 'assets/chat-profiles/chat1_profile.png',
+        time: '12:31PM',
+        isUnread: true
+    ),
+    ChatMessageWidget(
+        userName: 'Marcus Horizon',
+        msg: 'Thank you for your visit!',
+        profileImg: 'assets/chat-profiles/chat2_profile.png',
+        time: '10:25PM',
+        isUnread: true
+    ),
+    ChatMessageWidget(
+      userName: 'Edward Cullen',
+      msg: 'Great! Thanks man!',
+      profileImg: 'assets/chat-profiles/chat3_profile.png',
+      time: '01:09PM',
+      isUnread: false,
+    ),
+    ChatMessageWidget(
+      userName: 'Steve Bradl',
+      msg: 'Come now mate! It\'\ s time for the game',
+      profileImg: 'assets/chat-profiles/chat4_profile.png',
+      time: '11:00PM',
+      isUnread: false,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -75,36 +106,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Column(
-                children: [
-                  ChatMessageWidget(
-                      userName: 'Pattrick Wand',
-                      msg: 'Come now mate! It\'\ s time for the game',
-                      profileImg: 'assets/chat-profiles/chat1_profile.png',
-                      time: '12:31PM',
-                      isUnread: true
-                  ),
-                  ChatMessageWidget(
-                      userName: 'Marcus Horizon',
-                      msg: 'Thank you for your visit!',
-                      profileImg: 'assets/chat-profiles/chat2_profile.png',
-                      time: '10:25PM',
-                      isUnread: true
-                  ),
-                  ChatMessageWidget(
-                      userName: 'Edward Cullen',
-                      msg: 'Great! Thanks man!',
-                      profileImg: 'assets/chat-profiles/chat3_profile.png',
-                      time: '1:09PM',
-                      isUnread: true
-                  ),
-                  ChatMessageWidget(
-                      userName: 'Steve Bradl',
-                      msg: 'Come now mate! It\'\ s time for the game',
-                      profileImg: 'assets/chat-profiles/chat4_profile.png',
-                      time: '11:00PM',
-                      isUnread: true
-                  ),
-                ],
+                children: chatMessages,
               ),
             )
           ],

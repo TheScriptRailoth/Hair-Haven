@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/messaging_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 class ChatMessageWidget extends StatefulWidget {
   final String userName;
@@ -15,12 +18,27 @@ class ChatMessageWidget extends StatefulWidget {
 }
 
 class _ChatMessageWidgetState extends State<ChatMessageWidget> {
+  List<Color>colors=[
+    Color(0xffC6B5EF),
+    Colors.blue.withOpacity(0.2),
+    Colors.blue.withOpacity(0.4)
+  ];
   @override
   Widget build(BuildContext context) {
+    Color bgColor=colors[Random().nextInt(colors.length)];
     return Container(
       height: 70.h,
       child: TextButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return MessagingScreen(
+                userName: widget.userName,
+                companyName: 'Albert Barber',
+                profileImg: widget.profileImg,
+                profileBg: bgColor,
+            );
+          }));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,7 +50,7 @@ class _ChatMessageWidgetState extends State<ChatMessageWidget> {
                   height: 41.h,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.yellow
+                      color:bgColor,
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50.r),
@@ -87,13 +105,12 @@ class _ChatMessageWidgetState extends State<ChatMessageWidget> {
                     width: 15.w,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: widget.isUnread?Color(0xff44FC40):Colors.white,
+                      color: widget.isUnread?Color(0xff44FC40):null,
                     ),
                   )
                 ],
               ),
             ),
-
           ],
         ),
       ),
