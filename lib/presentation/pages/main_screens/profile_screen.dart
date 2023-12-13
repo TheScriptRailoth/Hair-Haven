@@ -36,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               GestureDetector(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99');
+                      return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99', location: 'Mumbai, INDIA',);
                   }));
                 },
                 child: Container(
@@ -96,7 +96,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: TextButton(
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99');
+                        return DetailedUserProfile(name: 'Swagatika Pradhan', followers: '16.8k', following: '99', location: 'Mumbai, INDIA',);
                       }));
                     },
                     child: Row(
