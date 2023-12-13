@@ -10,8 +10,8 @@ class ChatMessageWidget extends StatefulWidget {
   final String msg;
   final String time;
   final String profileImg;
-  final bool isUnread;
-  const ChatMessageWidget({Key?key, required this.userName, required this.msg, required this.profileImg, required this.time, required this.isUnread}):super(key: key);
+  late final bool isUnread;
+  ChatMessageWidget({Key?key, required this.userName, required this.msg, required this.profileImg, required this.time, required this.isUnread}):super(key: key);
 
   @override
   State<ChatMessageWidget> createState() => _ChatMessageWidgetState();
