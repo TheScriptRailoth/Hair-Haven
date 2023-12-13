@@ -2,25 +2,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-class SearchResultWidget extends StatelessWidget {
+class SearchResultWidget extends StatefulWidget {
   final String title;
   final String distance;
   final String rating;
   final String location;
   final String image;
-
   const SearchResultWidget({
-    Key? key,
+    Key?key,
     required this.title,
     required this.distance,
     required this.rating,
     required this.location,
     required this.image,
-  }) : super(key: key);
+  }):super(key: key);
 
   @override
+  State<SearchResultWidget> createState() => _SearchResultWidgetState();
+}
+
+class _SearchResultWidgetState extends State<SearchResultWidget> {
+  @override
   Widget build(BuildContext context) {
+    bool isSaved=false;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Flexible(
@@ -62,10 +66,11 @@ class SearchResultWidget extends StatelessWidget {
                             maxLines: 1,
                           ),
                         ),
-                        Icon(
-                          CupertinoIcons.heart_fill,
-                          color: Colors.grey.withOpacity(0.5),
-                          size: 20,
+                        IconButton(
+                          icon: Icon(CupertinoIcons.heart,color: isSaved?Colors.red:Colors.grey, size: 20,),
+                          onPressed: (){
+
+                          },
                         ),
                       ],
                     ),
@@ -131,6 +136,7 @@ class SearchResultWidget extends StatelessWidget {
     );
   }
 }
+
 
 
 // class SearchResultWidget extends StatefulWidget {

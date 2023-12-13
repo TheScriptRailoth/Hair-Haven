@@ -10,7 +10,7 @@ class ChatMessageWidget extends StatefulWidget {
   final String msg;
   final String time;
   final String profileImg;
-  late final bool isUnread;
+  bool isUnread;
   ChatMessageWidget({Key?key, required this.userName, required this.msg, required this.profileImg, required this.time, required this.isUnread}):super(key: key);
 
   @override
@@ -30,6 +30,9 @@ class _ChatMessageWidgetState extends State<ChatMessageWidget> {
       height: 70.h,
       child: TextButton(
         onPressed: (){
+          setState(() {
+            widget.isUnread = false; // Update isUnread when the button is pressed
+          });
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return MessagingScreen(
                 userName: widget.userName,
