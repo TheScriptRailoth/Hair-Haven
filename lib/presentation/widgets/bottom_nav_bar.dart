@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/main_screens/chat_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/home_screen.dart';
 import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/profile_screen.dart';
@@ -29,7 +30,7 @@ class BottomNavBar extends StatelessWidget {
             NavigationDestination(icon: controller.selectedIndex.value==0?Icon(CupertinoIcons.home, color: MyColors.primaryColor,):Icon(CupertinoIcons.home), label: '',),
             NavigationDestination(icon: controller.selectedIndex.value==1?Icon(CupertinoIcons.search, color: MyColors.primaryColor,):Icon(CupertinoIcons.search), label: ''),
             NavigationDestination(icon: controller.selectedIndex.value==2?Icon(CupertinoIcons.calendar,color: MyColors.primaryColor,):Icon(CupertinoIcons.calendar), label: ''),
-            NavigationDestination(icon: controller.selectedIndex.value==3?Icon(CupertinoIcons.bell,color: MyColors.primaryColor,):Icon(CupertinoIcons.bell), label: ''),
+            NavigationDestination(icon: controller.selectedIndex.value==3?Icon(Icons.chat_outlined,color: MyColors.primaryColor,):Icon(Icons.chat_outlined), label: ''),
             NavigationDestination(icon: controller.selectedIndex.value==4?Icon(CupertinoIcons.person,color: MyColors.primaryColor,):Icon(CupertinoIcons.person), label: ''),
           ],
         ),
@@ -41,5 +42,5 @@ class BottomNavBar extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex= 0.obs;
 
-  final screens=[HomeScreen(), SearchScreen(), SearchScreen(), SearchScreen(), ProfileScreen()];
+  final screens=[HomeScreen(), SearchScreen(), SearchScreen(), ChatScreen(), ProfileScreen()];
 }

@@ -1,8 +1,11 @@
+import 'dart:core';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/edit_profie_screen.dart';
 import 'dart:math' as math;
 
 import '../../widgets/reviewer_widget.dart';
@@ -22,6 +25,8 @@ class _DetailedUserProfileState extends State<DetailedUserProfile> with SingleTi
 
   final List<String> tabs = ['Reviews','Photos'];
   late TabController _tabController;
+
+
   @override
   void initState() {
     super.initState();
@@ -30,6 +35,8 @@ class _DetailedUserProfileState extends State<DetailedUserProfile> with SingleTi
 
   @override
   Widget build(BuildContext context) {
+
+    List posts=['assets/user-posts/post1.png','assets/user-posts/post2.png','assets/user-posts/post3.png', 'assets/user-posts/post4.png', 'assets/user-posts/post5.png', 'assets/user-posts/post6.png', 'assets/user-posts/post7.png', 'assets/user-posts/post8.png', 'assets/user-posts/post9.png',  'assets/user-posts/post1.png', 'assets/user-posts/post2.png', 'assets/user-posts/post3.png'];
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -57,45 +64,52 @@ class _DetailedUserProfileState extends State<DetailedUserProfile> with SingleTi
                           ],
                         ),
                         SizedBox(width: 20.w,),
-                        Container(
-                          height: 80.h,
-                          width: 90.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.r),
-                              border: Border.all(width: 4, color: MyColors.primaryColor)
-                          ),
-                          child: Stack(
-                            children: [
-                              Center(
-                                child: Container(
-                                  height: 70.h,
-                                  width: 78.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25.r),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(25.r),
-                                    child: Image.asset(
-                                      'assets/images/premium_salon_bg.png',
-                                      fit: BoxFit.cover, // Use BoxFit.cover to fit and maintain the aspect ratio
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return EditProfileScreen(img: 'assets/images/premium_salon_bg.png', userName: 'Swagatika Pradhan',);
+                            }));
+                          },
+                          child: Container(
+                            height: 80.h,
+                            width: 90.w,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.r),
+                                border: Border.all(width: 4, color: MyColors.primaryColor)
+                            ),
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 70.h,
+                                    width: 78.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25.r),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(25.r),
+                                      child: Image.asset(
+                                        'assets/images/premium_salon_bg.png',
+                                        fit: BoxFit.cover, // Use BoxFit.cover to fit and maintain the aspect ratio
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  height: 20.h,
-                                  width: 20.w,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(7.r),
-                                      color: MyColors.primaryColor
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 20.h,
+                                    width: 20.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(7.r),
+                                        color: MyColors.primaryColor
+                                    ),
+                                    child: Center(child: Icon(Icons.add, size: 24, color: Colors.white,)),
                                   ),
-                                  child: Center(child: Icon(Icons.add, size: 24, color: Colors.white,)),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(width: 20.w,),
@@ -268,35 +282,29 @@ class _DetailedUserProfileState extends State<DetailedUserProfile> with SingleTi
                                     },
                                   ),
                                 ),
-                                GridView.builder(
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 3,
-                                    crossAxisSpacing: 3.w,
-                                    mainAxisSpacing: 3.h,
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: posts.length ~/3,
+                                    itemBuilder: (BuildContext context, int ListViewindex){
+                                      return Wrap(
+                                        spacing: 2.w,
+                                        runSpacing: 2.h,
+                                        children: List.generate(
+                                              posts.length,
+                                              (int PostIndex) => SizedBox(
+                                            width: MediaQuery.of(context).size.width / 3 -3.w,
+                                            height:MediaQuery.of(context).size.height / 5 - 25.h,
+                                            child: Image.asset(
+                                              posts[PostIndex],
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
-                                  itemCount: 15,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    if (index == 0) {
-                                      // First image takes up 2 rows and 2 columns
-                                      return Container(
-                                        child: Image.asset(
-                                          'assets/images/premium_salon_bg.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                        width: 2 * MediaQuery.of(context).size.width / 3 - 3 * 2.w,
-                                        height: 2 * MediaQuery.of(context).size.height / 3 - 3 * 2.h,
-                                      );
-                                    } else {
-                                      return Container(
-                                        child: Image.asset(
-                                          'assets/images/premium_salon_bg.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      );
-                                    }
-                                  },
                                 ),
                               ],
                             ),
