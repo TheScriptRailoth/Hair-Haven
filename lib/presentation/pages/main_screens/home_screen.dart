@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/widgets/available_barber_widget.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -247,100 +248,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: [
                       SizedBox(width: 20.h,),
-                      Column(
-                        children: [
-                          Container(
-                            height:60.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffE2F5FA)
-                            ),
-                            child: Image.asset('assets/images/barber1.png'),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text("Robert Fox", style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400
-                          ),)
-                        ],
-                      ),
+                      AvailableBarberWidget(img: 'assets/images/barber1.png', name: "Robert Fox"),
                       SizedBox(width: 20.h,),
-                      Column(
-                        children: [
-                          Container(
-                            height:60.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffE2F5FA)
-                            ),
-                            child: Image.asset('assets/images/barber2.png'),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text("Jacob Jones", style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400
-                          ),)
-                        ],
-                      ),
+                      AvailableBarberWidget(img: 'assets/images/barber2.png', name: "Jacob Jones"),
                       SizedBox(width: 20.h,),
-                      Column(
-                        children: [
-                          Container(
-                            height:60.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffE2F5FA)
-                            ),
-                            child: Image.asset('assets/images/barber3.png'),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text("Albert Flores", style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400
-                          ),)
-                        ],
-                      ),
+                      AvailableBarberWidget(img: 'assets/images/barber3.png', name: "Albert Flores"),
                       SizedBox(width: 20.h,),
-                      Column(
-                        children: [
-                          Container(
-                            height:60.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffE2F5FA)
-                            ),
-                            child: Image.asset('assets/images/barber4.png'),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text("Ralph Jones", style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400
-                          ),)
-                        ],
-                      ),
+                      AvailableBarberWidget(img: 'assets/images/barber4.png', name: "Ralph Jones"),
                       SizedBox(width: 20.h,),
-                      Column(
-                        children: [
-                          Container(
-                            height:60.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffE2F5FA)
-                            ),
-                            child: Image.asset('assets/images/barber1.png'),
-                          ),
-                          SizedBox(height: 5.h),
-                          Text("Ralph Jones", style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400
-                          ),)
-                        ],
-                      ),
+                      AvailableBarberWidget(img: 'assets/images/barber1.png', name: "Ralph Jones"),
                       SizedBox(width: 20.h,)
                     ],
                   ),

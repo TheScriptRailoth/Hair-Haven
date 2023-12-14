@@ -4,10 +4,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../../core/theme/mycolors.dart';
+
 class BarberProfileScreen extends StatefulWidget {
-  const BarberProfileScreen({super.key});
+  final String img;
+  final String name;
+  final String experience;
+  const BarberProfileScreen({Key?key, required this.name, required this.img, required this.experience}):super(key: key);
 
   @override
   State<BarberProfileScreen> createState() => _BarberProfileScreenState();
@@ -67,7 +70,7 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                     CircleAvatar(
                       radius: 60.5.r,
                       child: Image.asset(
-                          'assets/images/ralph_barber.png',
+                          widget.img,
                         width: 127.w,
                         height: 127.h,
                         fit: BoxFit.contain,
@@ -77,11 +80,11 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Ralph Jones", style: GoogleFonts.lora(
+                        Text(widget.name, style: GoogleFonts.lora(
                           fontWeight: FontWeight.w600,
                           fontSize: 16.sp,
                         ),),
-                        Text("Professional Barber", style: GoogleFonts.lora(
+                        Text(widget.experience, style: GoogleFonts.lora(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp
                         ),),

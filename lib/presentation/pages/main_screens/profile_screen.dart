@@ -6,6 +6,8 @@ import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/user-profile-screens/detailed_user_profile.dart';
 import 'package:hair_haven/presentation/pages/user-profile-screens/help_center_screen.dart';
 import 'package:hair_haven/presentation/pages/user-profile-screens/privacy_policy_screen.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/saved_screen.dart';
+import 'package:hair_haven/presentation/pages/user-profile-screens/transaction_history.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -164,7 +166,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ),
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return SavedScreen();
+                          }));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -230,7 +236,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ),
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return TransactionHistorty();
+                      }));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
