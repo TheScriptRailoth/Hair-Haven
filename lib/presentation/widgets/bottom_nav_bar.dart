@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:hair_haven/presentation/pages/main_screens/bookings_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/chat_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/home_screen.dart';
 import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
@@ -42,5 +43,5 @@ class BottomNavBar extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex= 0.obs;
 
-  final screens=[HomeScreen(), SearchScreen(), SearchScreen(), ChatScreen(), ProfileScreen()];
+  final screens=[HomeScreen(), SearchScreen(), BookingScreen(), ChatScreen(), ProfileScreen()];
 }
