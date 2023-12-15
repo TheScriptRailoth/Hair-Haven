@@ -39,7 +39,44 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                 color: Color(0xff3A3A3A)
               ),),
               SizedBox(height: 20.h,),
-              Spacer(),
+              TextFormField(
+                style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 36.sp,
+                  color: MyColors.primaryColor
+                ),
+              ),
+              Text("To"),
+              Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                ),
+                itemCount: 12,
+                itemBuilder: (BuildContext context, int index) {
+                  return Center(
+                    child: Container(
+                      height: 74.h,
+                      width: 96.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(17.r),
+                        color: Color(0xffF5F6FA),
+                      ),
+                      child: TextButton(
+                        onPressed: (){},
+                        child: Text(
+                          '$index',
+                          style: GoogleFonts.montserrat(fontSize: 24.sp, fontWeight: FontWeight.w500, color: MyColors.primaryColor),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+              SizedBox(height: 20.h,),
               Container(
               height: 48.h,
               width: 344.w,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/date_and_time_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../core/theme/mycolors.dart';
 
@@ -247,15 +248,30 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                                         fontWeight: FontWeight.w400
                                     ),),
                                     SizedBox(height: 15.h,),
-                                    Container(
-                                      height: 50.h,
-                                      width: 358.w,
-                                      child: Image.asset(
-                                        'assets/images/Frame41.png',
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    SizedBox(height: 20.h,),
+                                    // Padding(
+                                    //   padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                                    //   child: Container(
+                                    //     height: 50.h,
+                                    //     width: 358.w,
+                                    //     decoration: BoxDecoration(
+                                    //       color: MyColors.primaryColor,
+                                    //       borderRadius: BorderRadius.circular(10.r),
+                                    //     ),
+                                    //     child: TextButton(
+                                    //       child: Text("Book Barber", style:GoogleFonts.lora(
+                                    //         fontWeight: FontWeight.w600,
+                                    //         fontSize: 16.sp,
+                                    //         color: Colors.white,
+                                    //       ),),
+                                    //       onPressed: (){
+                                    //         Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    //           return DateAndTimeScreen();
+                                    //         }));
+                                    //       },
+                                    //     )
+                                    //   ),
+                                    // ),
+                                    // SizedBox(height: 20.h,),
                                   ],
                                 ),
                               ),
@@ -441,15 +457,30 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                                     ],
                                   ),
                                   SizedBox(height: 80.h,),
-                                  Container(
-                                    height: 50.h,
-                                    width: 358.w,
-                                    child: Image.asset(
-                                      'assets/images/Frame41.png',
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20.h,),
+                                  // Padding(
+                                  //   padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                                  //   child: Container(
+                                  //       height: 50.h,
+                                  //       width: 358.w,
+                                  //       decoration: BoxDecoration(
+                                  //         color: MyColors.primaryColor,
+                                  //         borderRadius: BorderRadius.circular(10.r),
+                                  //       ),
+                                  //       child: TextButton(
+                                  //         child: Text("Book Barber", style:GoogleFonts.lora(
+                                  //           fontWeight: FontWeight.w600,
+                                  //           fontSize: 16.sp,
+                                  //           color: Colors.white,
+                                  //         ),),
+                                  //         onPressed: (){
+                                  //           Navigator.push(context, MaterialPageRoute(builder: (context){
+                                  //             return DateAndTimeScreen();
+                                  //           }));
+                                  //         },
+                                  //       )
+                                  //   ),
+                                  // ),
+                                  // SizedBox(height: 20.h,),
                                 ],
                               ),
                             ),
@@ -468,21 +499,45 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                                       width: 355.w,
                                       child: Image.asset('assets/images/map_image.png', fit: BoxFit.cover)),
                                   SizedBox(height: 20.h,),
-                                  Container(
-                                    height: 50.h,
-                                    width: 358.w,
-                                    child: Image.asset(
-                                      'assets/images/Frame41.png',
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20.h,),
+                                  // Container(
+                                  //   height: 50.h,
+                                  //   width: 358.w,
+                                  //   child: Image.asset(
+                                  //     'assets/images/Frame41.png',
+                                  //     fit: BoxFit.fill,
+                                  //   ),
+                                  // ),
+                                  // SizedBox(height: 20.h,),
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                        child: Container(
+                            height: 50.h,
+                            width: 358.w,
+                            decoration: BoxDecoration(
+                              color: MyColors.primaryColor,
+                              borderRadius: BorderRadius.circular(10.r),
+                            ),
+                            child: TextButton(
+                              child: Text("Book Barber", style:GoogleFonts.lora(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16.sp,
+                                color: Colors.white,
+                              ),),
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                  return DateAndTimeScreen();
+                                }));
+                              },
+                            )
+                        ),
+                      ),
+                      SizedBox(height: 20.h,),
                     ],
                   ),
                 ),

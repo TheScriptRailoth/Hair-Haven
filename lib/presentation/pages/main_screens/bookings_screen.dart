@@ -62,20 +62,20 @@ class _BookingScreenState extends State<BookingScreen> {
                   ],
                 ),
                 Container(
-                  height: 400.h,
+                  height: 518.h,
                   child: TabBarView(
                     children: [
                       SingleChildScrollView(
-                        scrollDirection:Axis.vertical,
+                        scrollDirection: Axis.vertical,
                         child: Column(
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Container(
-                                height: 245.h,
+                                height: 230.h,
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
                                 ),
                                 child: Column(
                                   children: [
@@ -91,16 +91,16 @@ class _BookingScreenState extends State<BookingScreen> {
                                             child: Row(
                                               children: [
                                                 Text("Aug 24, 2024", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                                 Text("-", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                                 Text("10:00PM", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                               ],
                                             ),
@@ -114,11 +114,11 @@ class _BookingScreenState extends State<BookingScreen> {
                                               Transform.scale(
                                                 scale: 0.7,
                                                 child: Switch(value: _isSwitched,
-                                                    onChanged: (value){
-                                                      setState(() {
-                                                        _isSwitched=value;
-                                                      });
-                                                    },
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      _isSwitched=value;
+                                                    });
+                                                  },
                                                   activeColor: Colors.white,
                                                   inactiveThumbColor: Colors.white,
                                                   activeTrackColor: MyColors.primaryColor,
@@ -135,14 +135,70 @@ class _BookingScreenState extends State<BookingScreen> {
                                       color: Color(0xffA6A3A3),
                                     ),
                                     Expanded(
-                                      child: Row(
-                                        children: [
-                                          Column(
-                                            children: [
-                                              
-                                            ],
-                                          )
-                                        ],
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
+
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -163,12 +219,12 @@ class _BookingScreenState extends State<BookingScreen> {
                                                     child: TextButton(
                                                       onPressed: (){},
                                                       child: Text("Cancel", style: GoogleFonts.roboto(
-                                                        fontSize: 12.sp,
-                                                        fontWeight: FontWeight.w400,
-                                                        color: Colors.black
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.black
                                                       ),),
                                                       style: ButtonStyle(
-                                                        side: MaterialStateProperty.all(BorderSide(width: 1,color: Colors.black))
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: Colors.black))
                                                       ),
                                                     ),
                                                   ),
@@ -185,13 +241,13 @@ class _BookingScreenState extends State<BookingScreen> {
                                                     child: TextButton(
                                                       onPressed: (){},
                                                       child: Text("View E-Receipt", style: GoogleFonts.roboto(
-                                                        fontSize: 12.sp,
-                                                        fontWeight: FontWeight.w400,
-                                                        color: Colors.white
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
                                                       ),),
                                                       style: ButtonStyle(
-                                                        backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
-                                                        side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
                                                       ),
                                                     ),
                                                   ),
@@ -208,10 +264,10 @@ class _BookingScreenState extends State<BookingScreen> {
                             Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Container(
-                                height: 245.h,
+                                height: 230.h,
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
                                 ),
                                 child: Column(
                                   children: [
@@ -227,16 +283,16 @@ class _BookingScreenState extends State<BookingScreen> {
                                             child: Row(
                                               children: [
                                                 Text("Aug 24, 2024", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                                 Text("-", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                                 Text("10:00PM", style:GoogleFonts.roboto(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.sp
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
                                                 ),),
                                               ],
                                             ),
@@ -250,11 +306,11 @@ class _BookingScreenState extends State<BookingScreen> {
                                               Transform.scale(
                                                 scale: 0.7,
                                                 child: Switch(value: _isSwitched,
-                                                    onChanged: (value){
-                                                      setState(() {
-                                                        _isSwitched=value;
-                                                      });
-                                                    },
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      _isSwitched=value;
+                                                    });
+                                                  },
                                                   activeColor: Colors.white,
                                                   inactiveThumbColor: Colors.white,
                                                   activeTrackColor: MyColors.primaryColor,
@@ -271,10 +327,70 @@ class _BookingScreenState extends State<BookingScreen> {
                                       color: Color(0xffA6A3A3),
                                     ),
                                     Expanded(
-                                      child: Row(
-                                        children: [
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
 
-                                        ],
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -286,15 +402,48 @@ class _BookingScreenState extends State<BookingScreen> {
                                       child: Row(
                                         children: [
                                           Expanded(
-                                              child: TextButton(
-                                                onPressed: (){},
-                                                child: Text("Cancel"),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 113.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("Cancel", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.black
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: Colors.black))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               )
                                           ),
                                           Expanded(
-                                              child: TextButton(
-                                                onPressed: (){},
-                                                child: Text("Cancel"),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 113.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("View E-Receipt", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               )
                                           ),
                                         ],
@@ -304,18 +453,803 @@ class _BookingScreenState extends State<BookingScreen> {
                                 ),
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 230.h,
+                                width: MediaQuery.sizeOf(context).width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 20.w),
+                                            child: Row(
+                                              children: [
+                                                Text("Aug 24, 2024", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("-", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("10:00PM", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("Remind Me", style:GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 10.sp
+                                              ),),
+                                              Transform.scale(
+                                                scale: 0.7,
+                                                child: Switch(value: _isSwitched,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      _isSwitched=value;
+                                                    });
+                                                  },
+                                                  activeColor: Colors.white,
+                                                  inactiveThumbColor: Colors.white,
+                                                  activeTrackColor: MyColors.primaryColor,
+                                                  inactiveTrackColor: Colors.white,
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
 
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Container(
+                                      height: 40.h,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 113.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("Cancel", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.black
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: Colors.black))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 113.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("View E-Receipt", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                       SingleChildScrollView(
                         child: Column(
-                          children: [],
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 230.h,
+                                width: MediaQuery.sizeOf(context).width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 20.w),
+                                            child: Row(
+                                              children: [
+                                                Text("Aug 24, 2024", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("-", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("10:00PM", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
+
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Container(
+                                      height: 40.h,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 283.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("View E-Receipt", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 230.h,
+                                width: MediaQuery.sizeOf(context).width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 20.w),
+                                            child: Row(
+                                              children: [
+                                                Text("Aug 24, 2024", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("-", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("10:00PM", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
+
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Container(
+                                      height: 40.h,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 283.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("View E-Receipt", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 230.h,
+                                width: MediaQuery.sizeOf(context).width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 20.w),
+                                            child: Row(
+                                              children: [
+                                                Text("Aug 24, 2024", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("-", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("10:00PM", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
+
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Container(
+                                      height: 40.h,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 283.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("View E-Receipt", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       SingleChildScrollView(
                         child: Column(
-                          children: [],
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 230.h,
+                                width: MediaQuery.sizeOf(context).width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xffA6A3A3), width: 1)
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 20.w),
+                                            child: Row(
+                                              children: [
+                                                Text("Aug 24, 2024", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("-", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                                Text("10:00PM", style:GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.sp
+                                                ),),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20.w),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 90.h,
+                                                  width: 90.w,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.yellow
+                                                  ),
+                                                  child: ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.r),
+                                                      child:Image.asset('assets/images/barber4.png', fit: BoxFit.contain,)
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.location_on_outlined, color: MyColors.primaryColor,size: 16,),
+                                                SizedBox(height: 10.h,),
+                                                Icon(CupertinoIcons.phone, color: Colors.red,size: 16,)
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text("Ralph Jones", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis, maxLines: 1,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Professional Barber", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16.sp,
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("6391 Elgin St. Celina, Delaware", style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585656),
+                                                ), overflow: TextOverflow.ellipsis,),
+                                                SizedBox(height: 5.h,),
+                                                Text("Service ID :  #1234H8906L", style: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12.sp,
+                                                    color: Color(0xff585656)
+                                                ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,),
+
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 1,
+                                      color: Color(0xffA6A3A3),
+                                    ),
+                                    Container(
+                                      height: 40.h,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height:24.h,
+                                                    width: 283.w,
+                                                    child: TextButton(
+                                                      onPressed: (){},
+                                                      child: Text("Re-Book", style: GoogleFonts.roboto(
+                                                          fontSize: 12.sp,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: Colors.white
+                                                      ),),
+                                                      style: ButtonStyle(
+                                                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                                          side: MaterialStateProperty.all(BorderSide(width: 1,color: MyColors.primaryColor))
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
