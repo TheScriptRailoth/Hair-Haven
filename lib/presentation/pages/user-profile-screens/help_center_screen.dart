@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
+import 'package:social_media_buttons/social_media_buttons.dart';
 class HelpCenterScreen extends StatefulWidget {
   const HelpCenterScreen({super.key});
 
@@ -22,14 +24,14 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   ];
 
   final List<Map<String, String>> tiles2 = [
-    {'icon':'assets/icons/apple-logo.png','title': 'Instagram', 'content': ''},
-    {'icon':'assets/images/facebook.png','title': 'Facebook', 'content':''},
-    {'icon':'assets/icons/phone.png','title': 'Phone Call', 'content':''},
-    {'icon':'assets/icons/twitter.png','title': 'Twitter', 'content':''},
-    {'icon':'assets/icons/world-wide-web.png','title': 'Website', 'content':''},
-    {'icon':'assets/icons/whatsapp.png','title': 'Whatsapp', 'content':''},
+    {'title': 'Instagram', 'content': ''},
+    {'title': 'Facebook', 'content':''},
+    {'title': 'Phone Call', 'content':''},
+    {'title': 'Twitter', 'content':''},
+    {'title': 'Website', 'content':''},
+    {'title': 'Whatsapp', 'content':''},
   ];
-
+  final List<Icon> icons = [Icon(SocialMediaIcons.instagram), Icon(SocialMediaIcons.facebook_squared, color: Color(0xff3D5A98)), Icon(CupertinoIcons.phone_fill_arrow_down_left, color: Color(0xff09DE45)), Icon(SocialMediaIcons.twitter_squared, color: Color(0xff1D9BF0)), Icon(CupertinoIcons.globe, color: Color(0xff1D9BF0)), Icon(SocialMediaIcons.whatsapp, color: Color(0xff09DE45))];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,7 +148,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(vertical: 0.h),
-                                    child: _buildContactUsResults(tiles2[index]['title'] ?? '', tiles2[index]['content'] ?? '', tiles2[index]['icon']??''),
+                                    child: _buildContactUsResults(tiles2[index]['title'] ?? '', tiles2[index]['content'] ?? '', tiles2[index]['icon']??'', index),
                                   ),
                                 ),
                                 SizedBox(height: 10.h),
@@ -155,7 +157,6 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
                           ),
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -185,10 +186,16 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
     );
   }
 
-  Widget _buildContactUsResults(String icon, String title, String content) {
+  Widget _buildContactUsResults(String icon, String title, String content, int index) {
     return ExpansionTile(
-      leading: Image.asset(icon, width: 12, height: 24,),
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.w400),),
+      title: Row(
+        children: [
+          
+          icons[index],
+          SizedBox(width: 10.w,),
+          Text(tiles2[index]['title']!),
+        ],
+      ),
       children: <Widget>[
         ListTile(
           title: Text(content),
