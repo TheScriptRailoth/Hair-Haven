@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hair_haven/presentation/pages/authentication-screens/login_screen.dart';
 
-import 'authentication-screens/auth_screen.dart';
+import 'authentication-screens/welcome_screen.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return LoginScreen();
+                return WelcomeScreen();
               }));
             },
             child: Image.asset(

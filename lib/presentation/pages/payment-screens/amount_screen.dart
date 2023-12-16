@@ -72,11 +72,6 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
               SizedBox(height: 20.h,),
               TextFormField(
                 controller: _amountController,
-                style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 36.sp,
-                  color: MyColors.primaryColor
-                ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 20.h,),
