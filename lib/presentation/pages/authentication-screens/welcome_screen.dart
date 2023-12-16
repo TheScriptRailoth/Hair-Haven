@@ -11,6 +11,7 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+
   final PageController _pageController = PageController();
   int _currentPage = 0;
   final List<String> Images=[
@@ -18,11 +19,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     'assets/images/splash2.png',
     'assets/images/splash3.png',
   ];
+  final List<String> Title=[
+    'Discover Nearby Beauty Havens',
+    'Transforming Hair, Boosting Confidence',
+    'Book Online'
+  ];
+  final List<String> SubTitle=[
+    'Unlock the beauty secrets hidden in your neighbourhood',
+    'Unlock the beauty secrets hidden in your neighbourhood',
+    'Go ahead and book an appointment with us online'
+  ];
   @override
   Widget build(BuildContext context) {
+    final int currentPage;
+    final int pageCount;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: EdgeInsets.only(top: 66.w),
@@ -65,12 +79,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       child: Column(
                         children: [
                           SizedBox(height: 20.h,),
-                          Text('Discover Nearby Beauty Havens', style: GoogleFonts.roboto(
+                          Text(Title[index], style: GoogleFonts.roboto(
                             fontWeight: FontWeight.w500,
                             fontSize: 24.sp
                           ), textAlign: TextAlign.center,),
                           SizedBox(height: 20.h,),
-                          Text('Unlock the beauty secrets hidden in your neighbourhood', style: GoogleFonts.roboto(
+                          Text(SubTitle[index], style: GoogleFonts.roboto(
                               fontWeight: FontWeight.w400,
                               fontSize: 14.sp
                           ), textAlign: TextAlign.center,),
@@ -82,46 +96,69 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               },
             ),
           ),
-          Padding(
-            padding:EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: PageIndicator(
-                      currentPage: _currentPage,
-                      pageCount: 3,
-                    ),
-                  ),
+          PageIndicator(currentPage: _currentPage, pageCount: 3),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                  shape: MaterialStateProperty.all(CircleBorder()),
                 ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
-                      shape: MaterialStateProperty.all(
-                        CircleBorder(),
-                      ),
-                    ),
-                    onPressed: () {
-                      _currentPage<2?_pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      ):Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return LoginScreen();
-                      }));
-                    },
-                    child: Center(child: Icon(Icons.arrow_forward)),
-                  ),
-                ),
-              ],
+                onPressed: () {
+                  _currentPage < 2
+                      ? _pageController.nextPage(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  )
+                      : Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
+                  }));
+                },
+                child: Icon(Icons.arrow_forward),
+              ),
             ),
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Expanded(
+          //       child: Container(
+          //         height: 50,
+          //         width: 50,
+          //         alignment: Alignment.center,
+          //         child: PageIndicator(
+          //           currentPage: _currentPage,
+          //           pageCount: 3,
+          //         ),
+          //       ),
+          //     ),
+          //     Container(
+          //       alignment: Alignment.centerRight,
+          //       decoration: BoxDecoration(
+          //         shape: BoxShape.circle,
+          //       ),
+          //       child: ElevatedButton(
+          //         style: ButtonStyle(
+          //           backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+          //           shape: MaterialStateProperty.all(
+          //             CircleBorder(),
+          //           ),
+          //         ),
+          //         onPressed: () {
+          //           _currentPage < 2 ? _pageController.nextPage(
+          //             duration: Duration(milliseconds: 300),
+          //             curve: Curves.easeInOut,
+          //           ) : Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //             return LoginScreen();
+          //           }));
+          //         },
+          //         child: Center(child: Icon(Icons.arrow_forward)),
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
