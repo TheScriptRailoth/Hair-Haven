@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/total_overview_screen.dart';
@@ -34,7 +37,27 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
-  late TextEditingController _textController;
+  late TextEditingController _HourController;
+  late TextEditingController _MinuteController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _HourController=TextEditingController(text: DateTime.now().hour.toString());
+    _MinuteController=TextEditingController(text: DateTime.now().minute.toString());
+
+    Timer.periodic(Duration(minutes: 1), (Timer timer) {
+      _MinuteController.text = DateTime.now().minute.toString().padLeft(2, '0');
+    });
+
+  }
+  @override
+  void dispose() {
+    _HourController.dispose();
+    _MinuteController.dispose();
+    super.dispose();
+  }
   
   String selectedMonth(String mon)
   {
@@ -198,12 +221,12 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(selectedMonth(_selectedDay!.month.toString()),
+                              Text(_selectedDay!=null?selectedMonth(_selectedDay!.month.toString()):selectedMonth(DateTime.now().month.toString()),
                                 style: GoogleFonts.roboto(
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w700
                                 ),),
-                              Text( _selectedDay!=null?_selectedDay!.day.toString():'', style: GoogleFonts.roboto(
+                              Text( _selectedDay!=null?_selectedDay!.day.toString(): DateTime.now().day.toString(), style: GoogleFonts.roboto(
                                 fontSize: 32.sp,
                                 fontWeight: FontWeight.w700
                               ),),
@@ -225,15 +248,84 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
                         width: 45.h,
                         color: Colors.white,
                         child: TextFormField(
-
+                          keyboardType: TextInputType.phone,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$')),
+                          ],
+                          controller: _HourController,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                            ),
+                          cursorColor: MyColors.primaryColor,
+                          // initialValue: DateTime.now().hour.toString(),
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 43.sp,
+                            color: Colors.black,
+                          ),
+                          onChanged: (value){
+                            if(value.isNotEmpty){
+                              final intValue=int.parse(value);
+                              if(intValue>24){
+                                _HourController.clear();
+                              }
+                            }
+                          },
                         ),
                       ),
                     ),
+                    SizedBox(width: 10.w,),
+                    Container(
+                      height: 32.h,
+                      width: 10.w,
+                      child: Text(":", style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 43.sp,
+                        color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10.w,),
+                    Material(
+                      elevation: 0.5,
+                      child: Container(
+                        height: 58.h,
+                        width: 70.h,
+                        color: Colors.white,
+                        child: TextFormField(
+                          controller: _MinuteController,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$'))
+                          ],
+                          cursorColor: MyColors.primaryColor,
+                          // initialValue: DateTime.now().hour.toString(),
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 43.sp,
+                            color: Colors.black,
+                          ),
+                          onChanged: (value){
+                            int intValue= int.parse(value);
+                            if(intValue>60){
+                              _MinuteController.clear();
+                            }
+                          },
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10.w,),
+
                   ],
                 ),
-                Spacer(),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.w),
+                  padding: EdgeInsets.symmetric(vertical: 60.h),
                   child: Container(
                     height: 45.h,
                     width: 300.w,
@@ -242,7 +334,7 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
                         return TotalOverview(selectedPrice: widget.selectedPrice,);
                       }));
                     }, child: Text(
-                      "Continue", style: GoogleFonts.lato(
+                      "Fix Schedule", style: GoogleFonts.lato(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.white

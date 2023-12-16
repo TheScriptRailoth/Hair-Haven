@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/cancel_booking_screen.dart';
 
 import '../../../core/theme/mycolors.dart';
 class BookingScreen extends StatefulWidget {
@@ -217,7 +218,11 @@ class _BookingScreenState extends State<BookingScreen> {
                                                     height:24.h,
                                                     width: 113.w,
                                                     child: TextButton(
-                                                      onPressed: (){},
+                                                      onPressed: (){
+                                                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                                                          return CancelBookingScreen();
+                                                        }));
+                                                      },
                                                       child: Text("Cancel", style: GoogleFonts.roboto(
                                                           fontSize: 12.sp,
                                                           fontWeight: FontWeight.w400,

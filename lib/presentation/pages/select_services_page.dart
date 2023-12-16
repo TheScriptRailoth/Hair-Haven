@@ -4,11 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/schedule_appointment_page.dart';
 class SelectServicesPage extends StatefulWidget {
+  static List<String> selectedItems=[];
   const SelectServicesPage({super.key});
   @override
   State<SelectServicesPage> createState() => _SelectServicesPageState();
 }
 class _SelectServicesPageState extends State<SelectServicesPage> {
+
   Map<int, String> selectedPrice = {};
   String selectedValue = '';
   var selectedOption;
@@ -110,8 +112,10 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
         setState(() {
           if (isSelected) {
             selectedPrice.remove(value);
+            SelectServicesPage.selectedItems.remove(title);
           } else {
             selectedPrice[value] = price;
+            SelectServicesPage.selectedItems.add(title);
           }
         });
       },
