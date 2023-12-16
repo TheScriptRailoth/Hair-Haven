@@ -7,6 +7,7 @@ import 'package:hair_haven/presentation/pages/payment-screens/digital_payment_sc
 import 'package:hair_haven/presentation/pages/select_services_page.dart';
 class TotalOverview extends StatefulWidget {
   final Map<int, String> selectedPrice;
+
   TotalOverview({Key?key, required this.selectedPrice}):super(key: key);
   
   @override
@@ -22,11 +23,17 @@ double getTotalPrice(Map<int, String> selectedItems) {
 }
 
 class _TotalOverviewState extends State<TotalOverview> {
+
+  static String calculateTotal(Map<int, String> selectedItems) {
+    double totalPrice = getTotalPrice(selectedItems);
+    double totalWithTax = (totalPrice + (totalPrice * 18 / 100)) - 25;
+    return totalWithTax.toStringAsFixed(2);
+  }
   @override
   Widget build(BuildContext context) {
     double totalPrice = getTotalPrice(widget.selectedPrice);
     double totalWithTax = (totalPrice-(totalPrice*18/100))-25;
-    String formatTOTAL= totalWithTax.toStringAsFixed(2);
+    String formatTOTAL= calculateTotal(widget.selectedPrice);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -334,7 +341,7 @@ class _TotalOverviewState extends State<TotalOverview> {
                               child: TextButton(
                                 onPressed: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                                    return DigitalPaymentScreen();
+                                    return DigitalPaymentScreen( totalAmount: formatTOTAL,);
                                   }));
                                 },
                                 child: Text("PROCEED TO PAY", style: GoogleFonts.lora(

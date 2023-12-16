@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/amount_screen.dart';
+import 'package:hair_haven/presentation/pages/payment-screens/total_overview_screen.dart';
 class DigitalPaymentScreen extends StatefulWidget {
-  const DigitalPaymentScreen({super.key});
+  final String totalAmount;
+  const DigitalPaymentScreen({Key?key, required this.totalAmount}):super(key:key);
 
   @override
   State<DigitalPaymentScreen> createState() => _DigitalPaymentScreenState();
@@ -143,7 +145,7 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                   child: TextButton(
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return PaymentAmountScreen();
+                        return PaymentAmountScreen(totalAmount: widget.totalAmount,);
                       }));
                     }, child: Text("Next", style: GoogleFonts.lora(
                         fontWeight: FontWeight.w600,
@@ -210,7 +212,7 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                       child: TextButton(
                         onPressed: (){
                           Navigator.push(context,MaterialPageRoute(builder: (context){
-                            return PaymentAmountScreen();
+                            return PaymentAmountScreen(totalAmount: widget.totalAmount);
                           }));
                         }, child: Text("Next", style: GoogleFonts.lora(
                           fontWeight: FontWeight.w600,
