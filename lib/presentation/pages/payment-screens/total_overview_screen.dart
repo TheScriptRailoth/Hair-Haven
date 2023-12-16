@@ -25,6 +25,8 @@ class _TotalOverviewState extends State<TotalOverview> {
   @override
   Widget build(BuildContext context) {
     double totalPrice = getTotalPrice(widget.selectedPrice);
+    double totalWithTax = (totalPrice-(totalPrice*18/100))-25;
+    String formatTOTAL= totalWithTax.toStringAsFixed(2);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -154,6 +156,31 @@ class _TotalOverviewState extends State<TotalOverview> {
                   SizedBox(height: 10.h,),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Text("Bill Details", style: GoogleFonts.lora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp,
+                        color: Colors.black,
+                    ),
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Text("Services Total", style: GoogleFonts.lora(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 13.sp,
+                        color: Colors.black.withOpacity(0.3)
+                    ),
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ),
+                  SizedBox(height: 20.h,),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
@@ -185,69 +212,65 @@ class _TotalOverviewState extends State<TotalOverview> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 5.h),
+                            SizedBox(height: 10.h),
                           ],
                         );
                       },
                     ),
                   ),
-                  // Container(
-                  //   child: Column(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       SizedBox(height: 10.h,),
-                  //       Padding(
-                  //         padding: EdgeInsets.symmetric(horizontal: 20.w,),
-                  //         child: Text("Bill Details", style: GoogleFonts.lora(
-                  //           fontWeight: FontWeight.w400,
-                  //           fontSize: 16.sp
-                  //         ),),
-                  //       ),
-                  //       Padding(
-                  //         padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  //         child: Text("Services Total", style: GoogleFonts.lora(
-                  //           fontWeight: FontWeight.w400,
-                  //           fontSize: 15.sp,
-                  //           color: Colors.grey
-                  //         ),),
-                  //       ),
-                  //       SizedBox(height: 10.h,),
-                  //       Container(
-                  //         height: 120.h,
-                  //         child: Padding(
-                  //           padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  //           child: ListView.builder(
-                  //             itemCount: SelectServicesPage.selectedItems.length,
-                  //             itemBuilder: (BuildContext context, int index) {
-                  //               final MapEntry<int, String> entry=widget.selectedPrice.entries.elementAt(index);
-                  //               return Column(
-                  //                 children: [
-                  //                   Row(
-                  //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //                     children: [
-                  //                       Text(SelectServicesPage.selectedItems[index], style: GoogleFonts.lora(
-                  //                         fontSize: 16.sp,
-                  //                         fontWeight: FontWeight.w400,
-                  //                       ),),
-                  //                       SizedBox(width: 20.w,),
-                  //                       Text('${entry.value}', style: GoogleFonts.lora(
-                  //                         fontSize: 14.sp,
-                  //                         fontWeight: FontWeight.w400,
-                  //                       ),),
-                  //                     ],
-                  //                   ),
-                  //                   SizedBox(height: 5.h,),
-                  //                 ],
-                  //               );
-                  //             },
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       SizedBox(height: 20.h,),
-                  //
-                  //     ],
-                  //   ),
-                  // ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    'Discount by coupon',
+                                    style: GoogleFonts.lora(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 20.w),
+                                Text(
+                                  '\$25',
+                                  style: GoogleFonts.lora(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                  Expanded(
+                              child: Text(
+                                'Tax',
+                                style: GoogleFonts.lora(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                                  SizedBox(width: 20.w),
+                                  Text(
+                              "\$ "+(totalPrice*18/100).toString(),
+                              style: GoogleFonts.lora(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            ],
+                        ),
+                            SizedBox(height: 10.h),
+                      ],
+                    ),
+                  ),
                   Container(
                     height: 15.h,
                     width: MediaQuery.sizeOf(context).width,
@@ -262,14 +285,14 @@ class _TotalOverviewState extends State<TotalOverview> {
                             fontSize: 17.sp,
                             fontWeight: FontWeight.w500
                         ),),
-                        Text('\$ '+totalPrice.toString(), style:GoogleFonts.lato(
+                        Text('\$ '+ formatTOTAL, style:GoogleFonts.lato(
                             fontWeight: FontWeight.w700,
                             fontSize: 16.sp
                         ),)
                       ],
                     ),
                   ),
-                  Padding(
+                  Padding (
                     padding: EdgeInsets.only(left: 20.w, right: 20.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -289,7 +312,7 @@ class _TotalOverviewState extends State<TotalOverview> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text('\$ '+totalPrice.toString(), style:GoogleFonts.lato(
+                                    Text('\$ '+formatTOTAL, style:GoogleFonts.lato(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 14.sp
                                     ),),

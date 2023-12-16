@@ -147,8 +147,10 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                     if (checked != null) {
                       if (checked) {
                         selectedPrice[value] = price;
+                        SelectServicesPage.selectedItems.add(title);
                       } else {
                         selectedPrice.remove(value);
+                        SelectServicesPage.selectedItems.remove(title);
                       }
                     }
                   });
