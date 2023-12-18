@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/main_screens/home_screen.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 class BarberBookingDoneScreen extends StatefulWidget {
   const BarberBookingDoneScreen({super.key});
 

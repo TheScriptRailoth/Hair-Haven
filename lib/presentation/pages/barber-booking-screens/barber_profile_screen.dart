@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hair_haven/presentation/pages/date_and_time_screen.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/date_and_time_screen.dart';
 import 'package:hair_haven/presentation/widgets/barber_reviewer_widget.dart';
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 
 class BarberProfileScreen extends StatefulWidget {
   final String img;
@@ -552,7 +552,7 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                               ),),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                                  return DateAndTimeScreen();
+                                  return DateAndTimeScreen(BarberName: widget.name, BarberServiceId: "#1234H8906L", BarberAddress: "6391 Elgin St. Celina, Delaware", BarberTitle: widget.experience, BarberImg: widget.img);
                                 }));
                               },
                             )

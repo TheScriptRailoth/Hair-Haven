@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/barber_profile_screen.dart';
 class AvailableBarberWidget extends StatefulWidget {
 
   final String img;

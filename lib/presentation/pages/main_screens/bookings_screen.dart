@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/date_and_time_screen.dart';
 import 'package:hair_haven/presentation/pages/cancel_booking_screen.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/theme/mycolors.dart';
 import '../../widgets/booking-screen-widgets/upcoming_booking_widgets.dart';
@@ -59,14 +61,32 @@ class _BookingScreenState extends State<BookingScreen> {
         ),
         body: TabBarView(
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  UpcomingBookingWidget(BarberName: 'Ralph Jones', BarberAddress: '6391 Elgin St. Celina, Delaware', BarberProfileImg: 'assets/images/barber3.png', BarberServiceId: '#1234H8906L', BarberTitle: 'Professional Barber', BookingDate: 'Aug 24,2024', BookingTime: '10:00PM',),
-                ],
-              ),
-            ),
+            BookedBarberDetails.BookedBarberNames.isNotEmpty?ListView.builder(
+              itemCount: BookedBarberDetails.BookedBarberNames.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  children: [
+                    UpcomingBookingWidget(
+                        BarberName: BookedBarberDetails.BookedBarberNames[index],
+                        BarberAddress: BookedBarberDetails.BookedBarberAdds[index],
+                        BarberProfileImg: BookedBarberDetails.BookedBarberProfiles[index],
+                        BarberServiceId: BookedBarberDetails.BookedBarberServiceIds[index],
+                        BarberTitle: BookedBarberDetails.BookedBarberTitles[index],
+                        BookingDate: BookedBarberDetails.BookedBarberDates[index],
+                        BookingTime: BookedBarberDetails.BookedBarberTimes[index]
+                    ),
+                  ],
+                );
+              },
+            ):Center(child: Text("No Bookings Yet!"),),
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.vertical,
+            //   child: Column(
+            //     children: [
+            //       UpcomingBookingWidget(BarberName: '     '+'Ralph Jones', BarberAddress: '6391 Elgin St. Celina, Delaware', BarberProfileImg: 'assets/images/barber3.png', BarberServiceId: '#1234H8906L', BarberTitle: '     '+'Professional Barber', BookingDate: 'Aug 24,2024', BookingTime: '10:00PM',),
+            //     ],
+            //   ),
+            // ),
             SingleChildScrollView(
               child: Column(
                 children: [

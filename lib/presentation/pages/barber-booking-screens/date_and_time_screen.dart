@@ -4,16 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
-import 'package:hair_haven/presentation/pages/barber_booking_done_screen.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/barber_booking_done_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:velocity_x/velocity_x.dart';
 class DateAndTimeScreen extends StatefulWidget {
-  const DateAndTimeScreen({super.key});
+  final String BarberName;
+  final String BarberTitle;
+  final String BarberServiceId;
+  final String BarberAddress;
+  final String BarberImg;
+  const DateAndTimeScreen({Key?key, required this.BarberName, required this.BarberServiceId, required this.BarberAddress, required this.BarberTitle, required this.BarberImg}):super(key: key);
+
+
 
   @override
   State<DateAndTimeScreen> createState() => _DateAndTimeScreenState();
 }
 
 class _DateAndTimeScreenState extends State<DateAndTimeScreen> {
+
   String? _selectedTime;
   String? _selectedTime2;
   List<String> timeOptions = [
@@ -276,6 +285,13 @@ class _DateAndTimeScreenState extends State<DateAndTimeScreen> {
                         color: Colors.white,
                       ),),
                       onPressed: (){
+                        BookedBarberDetails.BookedBarberNames.add(widget.BarberName);
+                        BookedBarberDetails.BookedBarberTitles.add(widget.BarberTitle);
+                        BookedBarberDetails.BookedBarberAdds.add(widget.BarberAddress);
+                        BookedBarberDetails.BookedBarberProfiles.add(widget.BarberImg);
+                        BookedBarberDetails.BookedBarberServiceIds.add(widget.BarberServiceId);
+                        BookedBarberDetails.BookedBarberDates.add(_selectedDay!.month.toString()+" "+_selectedDay!.day.toString()+", "+_selectedDay!.year.toString());
+                        BookedBarberDetails.BookedBarberTimes.add(_selectedTime.toString());
                         Navigator.push(context, MaterialPageRoute(builder: (context){
                           return BarberBookingDoneScreen();
                         }));
@@ -288,4 +304,13 @@ class _DateAndTimeScreenState extends State<DateAndTimeScreen> {
       )
     );
   }
+}
+class BookedBarberDetails{
+  static List<String>BookedBarberNames=[];
+  static List<String>BookedBarberTitles=[];
+  static List<String>BookedBarberServiceIds=[];
+  static List<String>BookedBarberAdds=[];
+  static List<String>BookedBarberProfiles=[];
+  static List<String>BookedBarberDates=[];
+  static List<String>BookedBarberTimes=[];
 }

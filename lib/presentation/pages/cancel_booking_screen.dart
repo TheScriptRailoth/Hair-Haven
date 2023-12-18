@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/date_and_time_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/bookings_screen.dart';
 
 import '../../core/theme/mycolors.dart';
 class CancelBookingScreen extends StatefulWidget {
-  const CancelBookingScreen({super.key});
+  final String BarberName;
+  final String BarberTitle;
+  final String BarberAddress;
+  final String BarberServiceId;
+  final String BarberProfile;
+  final String BookingDate;
+  final String BookingTime;
+  const CancelBookingScreen({Key?key, required this.BarberServiceId, required this.BarberAddress, required this.BarberTitle, required this.BarberName, required this.BookingTime, required this.BookingDate, required this.BarberProfile}):super(key:key);
 
   @override
   State<CancelBookingScreen> createState() => _CancelBookingScreenState();
 }
 String?selectedReasons;
+
+void removeLastOccurrence<T>(List<T> list, T element) {
+  for (int i = list.length - 1; i >= 0; i--) {
+    if (list[i] == element) {
+      list.removeAt(i);
+      return;
+    }
+  }
+}
 
 class _CancelBookingScreenState extends State<CancelBookingScreen> {
   @override
@@ -70,6 +87,15 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                           duration: Duration(seconds: 2),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberNames, widget.BarberName);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberTimes, widget.BookingTime);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberDates, widget.BookingDate);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberServiceIds, widget.BarberServiceId);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberProfiles, widget.BarberProfile);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberAdds, widget.BarberAddress);
+                      removeLastOccurrence(BookedBarberDetails.BookedBarberTitles, widget.BarberTitle);
+
                 }, child: Text(
                   "Continue", style: GoogleFonts.lato(
                     fontSize: 16.sp,

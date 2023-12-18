@@ -7,7 +7,7 @@ import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/main_screens/bookings_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/chat_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/home_screen.dart';
-import 'package:hair_haven/presentation/pages/barber_profile_screen.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/barber_profile_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/profile_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/search_screen.dart';
 class BottomNavBar extends StatelessWidget {
