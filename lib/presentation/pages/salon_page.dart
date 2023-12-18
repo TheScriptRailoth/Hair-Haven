@@ -6,7 +6,12 @@ import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/select_services_page.dart';
 import 'package:hair_haven/presentation/widgets/reviewer_widget.dart';
 class SalonPage extends StatefulWidget {
-  const SalonPage({super.key});
+  final String SalonName;
+  final String SalonAddress;
+  final String SalonImg;
+  final String SalonRating;
+  final String SalonDistance;
+  const SalonPage({Key? key, required this.SalonName, required this.SalonAddress, required this.SalonDistance, required this.SalonImg, required this.SalonRating}):super(key: key);
 
   @override
   State<SalonPage> createState() => _SalonPageState();
@@ -40,28 +45,30 @@ class _SalonPageState extends State<SalonPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12.sp
-                    ),),
-                    SizedBox(height: 5.h,),
-                    Text("Established in the year 2009, The Roose Parlour &\nSpa is a popular.",
-                    style: GoogleFonts.lato(
-                      color: Colors.grey,
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w400
-                    ),),
-                    SizedBox(height: 5.h,),
-                    Text("\$65", style: GoogleFonts.lato(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
-                    ),),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12.sp
+                      ),),
+                      SizedBox(height: 5.h,),
+                      Text("Established in the year 2009, The Roose Parlour & Spa is a popular.",
+                      style: GoogleFonts.lato(
+                        color: Colors.grey,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w400
+                      ),),
+                      SizedBox(height: 5.h,),
+                      Text("\$65", style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                      ),),
 
-                  ],
+                    ],
+                  ),
                 ),
                 Stack(
                   children: [
@@ -86,12 +93,14 @@ class _SalonPageState extends State<SalonPage> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(5.r)
                               ),
-                              child: Center(
+                              child: TextButton(
+                                onPressed: () {  },
                                 child: Text("ADD", style: GoogleFonts.roboto(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 9.sp
+                                    fontSize: 9.sp,
+                                  color: Colors.black
                                 ),),
-                              ),
+                               )
                             ),
                           ],
                         ),
@@ -114,28 +123,30 @@ class _SalonPageState extends State<SalonPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 12.sp
-                    ),),
-                    SizedBox(height: 5.h,),
-                    Text("Established in the year 2009, The Roose Parlour &\nSpa is a popular.",
-                      style: GoogleFonts.lato(
-                          color: Colors.grey,
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w400
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Hair Cut with Blow Dry', style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12.sp
                       ),),
-                    SizedBox(height: 5.h,),
-                    Text("\$65", style: GoogleFonts.lato(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
-                    ),),
+                      SizedBox(height: 5.h,),
+                      Text("Established in the year 2009, The Roose Parlour & Spa is a popular.",
+                        style: GoogleFonts.lato(
+                            color: Colors.grey,
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w400
+                        ),),
+                      SizedBox(height: 5.h,),
+                      Text("\$65", style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                      ),),
 
-                  ],
+                    ],
+                  ),
                 ),
                 Stack(
                   children: [
@@ -154,18 +165,20 @@ class _SalonPageState extends State<SalonPage> {
                           children: [
                             SizedBox(width: 8.w,),
                             Container(
-                              height: 20.h,
-                              width: 60.w,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                borderRadius: BorderRadius.circular(5.r)
-                              ),
-                              child: Center(
-                                child: Text("ADD", style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 9.sp
-                                ),),
-                              ),
+                                height: 20.h,
+                                width: 60.w,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5.r)
+                                ),
+                                child: TextButton(
+                                  onPressed: () {  },
+                                  child: Text("ADD", style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 9.sp,
+                                      color: Colors.black
+                                  ),),
+                                )
                             ),
                           ],
                         ),
@@ -196,7 +209,7 @@ class _SalonPageState extends State<SalonPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: Text("Cheeky Strandz Spa", style: GoogleFonts.lora(
+        title: Text(widget.SalonName, style: GoogleFonts.lora(
           fontWeight: FontWeight.w500,
           fontSize: 18.sp,
           color: Colors.white
@@ -229,14 +242,14 @@ class _SalonPageState extends State<SalonPage> {
             Container(
               height: 215.h,
               width: MediaQuery.sizeOf(context).width,
-              child: Image.asset('assets/images/premium_salon_bg.png', fit: BoxFit.cover,),
+              child: Image.asset(widget.SalonImg, fit: BoxFit.cover,),
             ),
             SizedBox(height: 10.h,),
             Row(
               children: [
                 SizedBox(width: 15.w,),
                 Expanded(
-                  child: Text("Premium Salon", style: GoogleFonts.lora(
+                  child: Text(widget.SalonName, style: GoogleFonts.lora(
                     fontSize: 22.sp,
                     fontWeight: FontWeight.w700,
                     color: Colors.black
@@ -270,7 +283,7 @@ class _SalonPageState extends State<SalonPage> {
                 SizedBox(width: 15.w,),
                 Icon(Icons.location_on_outlined, color: Colors.grey, size: 13,),
                 Expanded(
-                  child: Text("2715 Ash Dr. San Jose, South Dakota 83475", style: GoogleFonts.roboto(
+                  child: Text(widget.SalonAddress, style: GoogleFonts.roboto(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey
@@ -280,7 +293,7 @@ class _SalonPageState extends State<SalonPage> {
                   ),
                 ),
                 SizedBox(width: 10.w,),
-                Text("5KM", style: GoogleFonts.lora(
+                Text(widget.SalonDistance, style: GoogleFonts.lora(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700
                 ),),
@@ -424,7 +437,7 @@ class _SalonPageState extends State<SalonPage> {
                         labelColor: Colors.black,
                           labelStyle: GoogleFonts.roboto(
                             fontWeight: FontWeight.w400,
-                            fontSize: 16.sp
+                            fontSize: 15.sp
                           ),
                           indicatorColor: MyColors.primaryColor,
                           tabs: [
@@ -463,104 +476,100 @@ class _SalonPageState extends State<SalonPage> {
                                   );
                                 },
                               ),
-                            SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 20.h,),
-                                  Text("Established in the year 2009, The Roose Parlour & Spa is a\npopular salon in Downtown Phoenix. From haircut, styling to\ncolor and other hair treatments, and spa services, the salon\noffers numerous services for its clients.",
-                                    style: GoogleFonts.roboto(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400
-                                    ),
+                            ListView(
+                              children: [
+                                SizedBox(height: 20.h,),
+                                Text("Established in the year 2009, The Roose Parlour & Spa is a\npopular salon in Downtown Phoenix. From haircut, styling to\ncolor and other hair treatments, and spa services, the salon\noffers numerous services for its clients.",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400
                                   ),
-                                  SizedBox(height: 10.h,),
-                                  Text("Hair Salon & Spa Mission Statement",
-                                    style: GoogleFonts.roboto(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w700
-                                    ),
+                                ),
+                                SizedBox(height: 10.h,),
+                                Text("Hair Salon & Spa Mission Statement",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700
                                   ),
-                                  SizedBox(height: 10.h,),
-                                  Text("We celebrate women and men in their real, most raw,\nauthentic brilliance, who believe in themselves and are ready\nto step into the look they love. We employ hair products\nwith some of the most natural and rich ingredients because\nwe believe you should never expect less.",
-                                    style: GoogleFonts.roboto(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400
-                                    ),
+                                ),
+                                SizedBox(height: 10.h,),
+                                Text("We celebrate women and men in their real, most raw,\nauthentic brilliance, who believe in themselves and are ready\nto step into the look they love. We employ hair products\nwith some of the most natural and rich ingredients because\nwe believe you should never expect less.",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400
                                   ),
-                                  SizedBox(height: 20.h,),
-                                  Container(
-                                    height: 1.5,
-                                    width: MediaQuery.sizeOf(context).width,
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Review summary", style: GoogleFonts.roboto(
-                                          fontStyle: FontStyle.italic,
-                                          fontSize: 22.sp,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w100
-                                      ),),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.star, color: Colors.amber, size: 25,),
-                                          SizedBox(width: 5.w),
-                                          Text("4.5", style: GoogleFonts.lato(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 40.sp
-                                          ),),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  Container(
-                                    height: 1.5,
-                                    width: MediaQuery.sizeOf(context).width,
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  ReviewerWidget(
-                                      name: "Devon Lane",
-                                      review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-                                      rating: "4.5",
-                                      profileImg: "assets/images/devon_lane.png"
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  Container(
-                                    height: 1.5,
-                                    width: MediaQuery.sizeOf(context).width,
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  ReviewerWidget(
-                                      name: "Jenny Wilson",
-                                      review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-                                      rating: "4.5",
-                                      profileImg: "assets/images/jenny_wilson.png"
-                                  ),
+                                ),
+                                SizedBox(height: 20.h,),
+                                Container(
+                                  height: 1.5,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  color: Colors.grey.withOpacity(0.3),
+                                ),
+                                SizedBox(height: 10.h,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Review summary", style: GoogleFonts.roboto(
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 22.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w100
+                                    ),),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.star, color: Colors.amber, size: 25,),
+                                        SizedBox(width: 5.w),
+                                        Text("4.5", style: GoogleFonts.lato(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 40.sp
+                                        ),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                SizedBox(height: 10.h,),
+                                Container(
+                                  height: 1.5,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  color: Colors.grey.withOpacity(0.3),
+                                ),
+                                SizedBox(height: 10.h,),
+                                ReviewerWidget(
+                                    name: "Devon Lane",
+                                    review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+                                    rating: "4.5",
+                                    profileImg: "assets/images/devon_lane.png"
+                                ),
+                                SizedBox(height: 10.h,),
+                                Container(
+                                  height: 1.5,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  color: Colors.grey.withOpacity(0.3),
+                                ),
+                                SizedBox(height: 10.h,),
+                                ReviewerWidget(
+                                    name: "Jenny Wilson",
+                                    review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+                                    rating: "4.5",
+                                    profileImg: "assets/images/jenny_wilson.png"
+                                ),
 
-                                  SizedBox(height: 10.h,),
-                                  Container(
-                                    height: 1.5,
-                                    width: MediaQuery.sizeOf(context).width,
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
-                                  SizedBox(height: 10.h,),
-                                  ReviewerWidget(
-                                      name: "Jacob Jones",
-                                      review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-                                      rating: "4.5",
-                                      profileImg: "assets/images/jacob_jones.png"
-                                  ),
-                                  SizedBox(height: 50.h,)
+                                SizedBox(height: 10.h,),
+                                Container(
+                                  height: 1.5,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  color: Colors.grey.withOpacity(0.3),
+                                ),
+                                SizedBox(height: 10.h,),
+                                ReviewerWidget(
+                                    name: "Jacob Jones",
+                                    review: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+                                    rating: "4.5",
+                                    profileImg: "assets/images/jacob_jones.png"
+                                ),
+                                SizedBox(height: 50.h,)
 
-                                ],
-                              ),
+                              ],
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.vertical,

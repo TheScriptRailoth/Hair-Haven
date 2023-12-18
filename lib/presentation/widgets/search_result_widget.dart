@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/salon_page.dart';
-import 'package:hair_haven/presentation/pages/user-profile-screens/saved_screen.dart';
 
 class SearchResultWidget extends StatefulWidget {
   final String title;
@@ -35,7 +34,7 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
           GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return SalonPage();
+                return SalonPage(SalonName: widget.title, SalonAddress: widget.location, SalonDistance: widget.distance, SalonImg: 'assets/images/premium_salon_bg.png', SalonRating: widget.rating);
               }));
             },
             child: Flexible(

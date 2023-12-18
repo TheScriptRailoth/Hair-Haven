@@ -59,229 +59,226 @@ class _DateAndTimeScreenState extends State<DateAndTimeScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20.h,),
-            Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
             children: [
-                Container(
-                height: 350.h,
-                width: 320.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.r),
-                  color: Color(0xffE3FFFC),
-                ),
-                child: TableCalendar(
-                  locale: 'en_US',
-                  firstDay: DateTime.utc(2021, 1, 1),
-                  lastDay: DateTime.utc(2030, 12, 31),
-                  focusedDay: _focusedDay,
-                  calendarFormat: _calendarFormat,
-                  daysOfWeekHeight: 33.h,
-                  headerStyle: HeaderStyle(
-                    formatButtonVisible: false,
-                    titleCentered: true,
-                    headerPadding: EdgeInsets.symmetric(vertical: 5),
-                    formatButtonDecoration: BoxDecoration(
-                      color: MyColors.primaryColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+              SizedBox(height: 20.h,),
+              Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                  Container(
+                  height: 350.h,
+                  width: 320.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.r),
+                    color: Color(0xffE3FFFC),
                   ),
-                  daysOfWeekStyle: DaysOfWeekStyle(
-                    weekdayStyle: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16.sp
+                  child: TableCalendar(
+                    locale: 'en_US',
+                    firstDay: DateTime.utc(2021, 1, 1),
+                    lastDay: DateTime.utc(2030, 12, 31),
+                    focusedDay: _focusedDay,
+                    calendarFormat: _calendarFormat,
+                    daysOfWeekHeight: 33.h,
+                    headerStyle: HeaderStyle(
+                      formatButtonVisible: false,
+                      titleCentered: true,
+                      headerPadding: EdgeInsets.symmetric(vertical: 5),
+                      formatButtonDecoration: BoxDecoration(
+                        color: MyColors.primaryColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                     ),
-                    weekendStyle: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16.sp
+                    daysOfWeekStyle: DaysOfWeekStyle(
+                      weekdayStyle: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.sp
+                      ),
+                      weekendStyle: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.sp
+                      ),
+                      decoration: BoxDecoration(
+                        color: MyColors.primaryColor,
+                      ),
                     ),
+                    calendarStyle: CalendarStyle(
+                      selectedDecoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: MyColors.primaryColor
+                      ),
+                       todayDecoration: BoxDecoration(
+                           shape: BoxShape.circle,
+                           color: MyColors.primaryColor.withOpacity(0.4)
+                       ),
+                    ),
+                    selectedDayPredicate: (day) {
+                      return isSameDay(_selectedDay, day);
+                    },
+                    onDaySelected: (selectedDay, focusedDay) {
+                      setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                      });
+                    },
+                    onFormatChanged: (format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    },
+                    onPageChanged: (focusedDay) {
+                      _focusedDay = focusedDay;
+                    },
+                  ),
+                ),
+                ],
+              ),
+              SizedBox(height: 20.h,),
+              Text("Pick Time", style: GoogleFonts.roboto(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w600,
+                color: Colors.black
+              ),),
+              SizedBox(height: 20.h,),
+              Container(
+                height: 20.h,
+                width: MediaQuery.sizeOf(context).width,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Text("From", style: GoogleFonts.roboto(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black
+                        ),),
+                    ),
+                    Expanded(
+                        child: Text("To", style: GoogleFonts.roboto(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black
+                        ),),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10.h,),
+              Container(
+                height: 40.h,
+                width: MediaQuery.sizeOf(context).width,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 40.h,
+                            width: 140.w,
+                            decoration: BoxDecoration(
+                                color: MyColors.primaryColor,
+                                borderRadius: BorderRadius.circular(10.r)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: DropdownButtonFormField<String>(
+                                value: _selectedTime,
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    _selectedTime = newValue;
+                                  });
+                                },
+                                items: timeOptions.map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value, style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16.sp,
+                                        color: _selectedTime==value?Colors.white:Colors.black
+                                    ),),
+                                  );
+                                }).toList(),
+                                icon: Icon(Icons.arrow_drop_down_outlined, color: Colors.white,),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 40.h,
+                            width: 140.w,
+                            decoration: BoxDecoration(
+                                color: MyColors.primaryColor,
+                                borderRadius: BorderRadius.circular(10.r)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: DropdownButtonFormField<String>(
+                                value: _selectedTime2,
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    _selectedTime2 = newValue;
+                                  });
+                                },
+                                items: timeOptions.map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value, style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16.sp,
+                                        color: _selectedTime2==value?Colors.white:Colors.black
+                                    ),
+                                    ),
+                                  );
+                                }).toList(),
+                                icon: Icon(Icons.arrow_drop_down_outlined, color: Colors.white,),
+                                decoration: InputDecoration(
+                                  labelText: null,
+                                  border: InputBorder.none,
+                                  // Add additional decoration properties as needed
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10.h,),
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                child: Container(
+                    height: 50.h,
+                    width: 358.w,
                     decoration: BoxDecoration(
                       color: MyColors.primaryColor,
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                  ),
-                  calendarStyle: CalendarStyle(
-                    selectedDecoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: MyColors.primaryColor
-                    ),
-                     todayDecoration: BoxDecoration(
-                         shape: BoxShape.circle,
-                         color: MyColors.primaryColor.withOpacity(0.4)
-                     ),
-                  ),
-                  selectedDayPredicate: (day) {
-                    return isSameDay(_selectedDay, day);
-                  },
-                  onDaySelected: (selectedDay, focusedDay) {
-                    setState(() {
-                      _selectedDay = selectedDay;
-                      _focusedDay = focusedDay;
-                    });
-                  },
-                  onFormatChanged: (format) {
-                    setState(() {
-                      _calendarFormat = format;
-                    });
-                  },
-                  onPageChanged: (focusedDay) {
-                    _focusedDay = focusedDay;
-                  },
+                    child: TextButton(
+                      child: Text("Book Barber", style:GoogleFonts.lora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp,
+                        color: Colors.white,
+                      ),),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return BarberBookingDoneScreen();
+                        }));
+                      },
+                    )
                 ),
               ),
-              ],
-            ),
-            SizedBox(height: 20.h,),
-            Text("Pick Time", style: GoogleFonts.roboto(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w600,
-              color: Colors.black
-            ),),
-            SizedBox(height: 20.h,),
-            Container(
-              height: 20.h,
-              width: MediaQuery.sizeOf(context).width,
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Text("From", style: GoogleFonts.roboto(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black
-                      ),),
-                  ),
-                  Expanded(
-                      child: Text("To", style: GoogleFonts.roboto(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black
-                      ),),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10.h,),
-            Container(
-              height: 40.h,
-              width: MediaQuery.sizeOf(context).width,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 40.h,
-                          width: 140.w,
-                          decoration: BoxDecoration(
-                              color: MyColors.primaryColor,
-                              borderRadius: BorderRadius.circular(10.r)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: DropdownButtonFormField<String>(
-                              value: _selectedTime,
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  _selectedTime = newValue;
-                                });
-                              },
-                              items: timeOptions.map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value, style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16.sp,
-                                      color: _selectedTime==value?Colors.white:Colors.black
-                                  ),),
-                                );
-                              }).toList(),
-                              icon: Icon(Icons.arrow_drop_down_outlined, color: Colors.white,),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 40.h,
-                          width: 140.w,
-                          decoration: BoxDecoration(
-                              color: MyColors.primaryColor,
-                              borderRadius: BorderRadius.circular(10.r)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: DropdownButtonFormField<String>(
-                              value: _selectedTime2,
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  _selectedTime2 = newValue;
-                                });
-                              },
-                              items: timeOptions.map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value, style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16.sp,
-                                      color: _selectedTime2==value?Colors.white:Colors.black
-                                  ),
-                                  ),
-                                );
-                              }).toList(),
-                              icon: Icon(Icons.arrow_drop_down_outlined, color: Colors.white,),
-                              decoration: InputDecoration(
-                                labelText: null,
-                                border: InputBorder.none,
-                                // Add additional decoration properties as needed
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 50.h,),
-            Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10.w),
-              child: Container(
-                  height: 50.h,
-                  width: 358.w,
-                  decoration: BoxDecoration(
-                    color: MyColors.primaryColor,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: TextButton(
-                    child: Text("Book Barber", style:GoogleFonts.lora(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                    ),),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return BarberBookingDoneScreen();
-                      }));
-                    },
-                  )
-              ),
-            ),
-
-
-          ],
+            ],
         ),
       )
     );

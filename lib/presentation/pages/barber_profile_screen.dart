@@ -5,8 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/date_and_time_screen.dart';
 import 'package:hair_haven/presentation/widgets/barber_reviewer_widget.dart';
-import 'package:hair_haven/presentation/widgets/reviewer_widget.dart';
-import 'package:velocity_x/velocity_x.dart';
 import '../../core/theme/mycolors.dart';
 
 class BarberProfileScreen extends StatefulWidget {
@@ -565,7 +563,6 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
