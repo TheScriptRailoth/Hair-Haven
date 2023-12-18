@@ -387,7 +387,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
               child: TextButton(
                 onPressed: (){
                   Navigator.push(context,MaterialPageRoute(builder: (context){
-                    return PaymentCompleteScreen();
+                    return PaymentCompleteScreen(SalonName: widget.salonName, TotalAmount: _amountController.text);
                   }));
                 }, child: Text("Next", style: GoogleFonts.lora(
                   fontWeight: FontWeight.w600,

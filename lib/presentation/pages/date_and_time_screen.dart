@@ -66,73 +66,78 @@ class _DateAndTimeScreenState extends State<DateAndTimeScreen> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                  Container(
-                  height: 350.h,
-                  width: 320.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.r),
-                    color: Color(0xffE3FFFC),
+                  LayoutBuilder(
+                    builder: (BuildContext context, BoxConstraints constraints) {
+                      return Container(
+                        constraints: BoxConstraints(
+                          maxWidth: constraints.maxWidth,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.r),
+                          color: Color(0xffE3FFFC),
+                        ),
+                        child: TableCalendar(
+                          locale: 'en_US',
+                          firstDay: DateTime.utc(2021, 1, 1),
+                          lastDay: DateTime.utc(2030, 12, 31),
+                          focusedDay: _focusedDay,
+                          calendarFormat: _calendarFormat,
+                          daysOfWeekHeight: 33.h,
+                          headerStyle: HeaderStyle(
+                            formatButtonVisible: false,
+                            titleCentered: true,
+                            headerPadding: EdgeInsets.symmetric(vertical: 5),
+                            formatButtonDecoration: BoxDecoration(
+                              color: MyColors.primaryColor,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                          daysOfWeekStyle: DaysOfWeekStyle(
+                            weekdayStyle: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16.sp
+                            ),
+                            weekendStyle: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16.sp
+                            ),
+                            decoration: BoxDecoration(
+                              color: MyColors.primaryColor,
+                            ),
+                          ),
+                          calendarStyle: CalendarStyle(
+                            selectedDecoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: MyColors.primaryColor
+                            ),
+                            todayDecoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: MyColors.primaryColor.withOpacity(0.4)
+                            ),
+                          ),
+                          selectedDayPredicate: (day) {
+                            return isSameDay(_selectedDay, day);
+                          },
+                          onDaySelected: (selectedDay, focusedDay) {
+                            setState(() {
+                              _selectedDay = selectedDay;
+                              _focusedDay = focusedDay;
+                            });
+                          },
+                          onFormatChanged: (format) {
+                            setState(() {
+                              _calendarFormat = format;
+                            });
+                          },
+                          onPageChanged: (focusedDay) {
+                            _focusedDay = focusedDay;
+                          },
+                        ),
+                      );
+                    },
                   ),
-                  child: TableCalendar(
-                    locale: 'en_US',
-                    firstDay: DateTime.utc(2021, 1, 1),
-                    lastDay: DateTime.utc(2030, 12, 31),
-                    focusedDay: _focusedDay,
-                    calendarFormat: _calendarFormat,
-                    daysOfWeekHeight: 33.h,
-                    headerStyle: HeaderStyle(
-                      formatButtonVisible: false,
-                      titleCentered: true,
-                      headerPadding: EdgeInsets.symmetric(vertical: 5),
-                      formatButtonDecoration: BoxDecoration(
-                        color: MyColors.primaryColor,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    daysOfWeekStyle: DaysOfWeekStyle(
-                      weekdayStyle: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16.sp
-                      ),
-                      weekendStyle: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16.sp
-                      ),
-                      decoration: BoxDecoration(
-                        color: MyColors.primaryColor,
-                      ),
-                    ),
-                    calendarStyle: CalendarStyle(
-                      selectedDecoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: MyColors.primaryColor
-                      ),
-                       todayDecoration: BoxDecoration(
-                           shape: BoxShape.circle,
-                           color: MyColors.primaryColor.withOpacity(0.4)
-                       ),
-                    ),
-                    selectedDayPredicate: (day) {
-                      return isSameDay(_selectedDay, day);
-                    },
-                    onDaySelected: (selectedDay, focusedDay) {
-                      setState(() {
-                        _selectedDay = selectedDay;
-                        _focusedDay = focusedDay;
-                      });
-                    },
-                    onFormatChanged: (format) {
-                      setState(() {
-                        _calendarFormat = format;
-                      });
-                    },
-                    onPageChanged: (focusedDay) {
-                      _focusedDay = focusedDay;
-                    },
-                  ),
-                ),
                 ],
               ),
               SizedBox(height: 20.h,),

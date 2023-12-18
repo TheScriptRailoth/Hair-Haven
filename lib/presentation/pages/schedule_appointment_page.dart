@@ -120,235 +120,239 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Material(
-                elevation: 1,
-                borderRadius: BorderRadius.circular(15.r),
-                child: Container(
-                  height: 350.h,
-                  width: 320.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.r),
-                    color: Color(0xffFFFFFF),
-                  ),
-                  child: TableCalendar(
-                    locale: 'en_US',
-                    firstDay: DateTime.utc(2021, 1, 1),
-                    lastDay: DateTime.utc(2030, 12, 31),
-                    focusedDay: _focusedDay,
-                    calendarFormat: _calendarFormat,
-                    daysOfWeekHeight: 33.h,
-                    headerStyle: HeaderStyle(
-                      formatButtonVisible: false,
-                      titleCentered: true,
-                      headerPadding: EdgeInsets.symmetric(vertical: 5),
-                      formatButtonDecoration: BoxDecoration(
-                        color: MyColors.primaryColor,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      titleTextStyle:GoogleFonts.lora(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18.sp,
-                        color: MyColors.primaryColor
-                      ),
-                    ),
-                    daysOfWeekStyle: DaysOfWeekStyle(
-                      weekdayStyle: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16.sp
-                      ),
-                      weekendStyle: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16.sp
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color(0xffC4C4C4),
-                      ),
-                    ),
-                    calendarStyle: CalendarStyle(
-                      selectedDecoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.black
-                      ),
-                      todayDecoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.black.withOpacity(0.5)
-                      ),
-                    ),
-                    selectedDayPredicate: (day) {
-                      return isSameDay(_selectedDay, day);
-                    },
-                    onDaySelected: (selectedDay, focusedDay) {
-                      setState(() {
-                        _selectedDay = selectedDay;
-                        _focusedDay = focusedDay;
-                      });
-                    },
-                    onFormatChanged: (format) {
-                      setState(() {
-                        _calendarFormat = format;
-                      });
-                    },
-                    onPageChanged: (focusedDay) {
-                      _focusedDay = focusedDay;
+        padding:EdgeInsets.all(10.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                child: Material(
+                  elevation: 1,
+                  borderRadius: BorderRadius.circular(15.r),
+                  child: LayoutBuilder(
+                    builder: (BuildContext context, BoxConstraints constraints){
+                        return Container(
+                          constraints: BoxConstraints(
+                            maxWidth: constraints.maxWidth,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.r),
+                            color: Color(0xffFFFFFF),
+                          ),
+                          child: TableCalendar(
+                            firstDay: DateTime.utc(2021, 1, 1),
+                            lastDay: DateTime.utc(2030, 12, 31),
+                            focusedDay: _focusedDay,
+                            calendarFormat: _calendarFormat,
+                            daysOfWeekHeight: 33.h,
+                            headerStyle: HeaderStyle(
+                              formatButtonVisible: false,
+                              titleCentered: true,
+                              headerPadding: EdgeInsets.symmetric(vertical: 5.h),
+                              formatButtonDecoration: BoxDecoration(
+                                color: MyColors.primaryColor,
+                                borderRadius: BorderRadius.circular(5.r),
+                              ),
+                              titleTextStyle:GoogleFonts.lora(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 18.sp,
+                                  color: MyColors.primaryColor
+                              ),
+                            ),
+                            daysOfWeekStyle: DaysOfWeekStyle(
+                              weekdayStyle: GoogleFonts.poppins(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16.sp
+                              ),
+                              weekendStyle: GoogleFonts.poppins(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16.sp
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color(0xffC4C4C4),
+                              ),
+                            ),
+                            calendarStyle: CalendarStyle(
+                              selectedDecoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black
+                              ),
+                              todayDecoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black.withOpacity(0.5)
+                              ),
+                            ),
+                            selectedDayPredicate: (day) {
+                              return isSameDay(_selectedDay, day);
+                            },
+                            onDaySelected: (selectedDay, focusedDay) {
+                              setState(() {
+                                _selectedDay = selectedDay;
+                                _focusedDay = focusedDay;
+                              });
+                            },
+                            onFormatChanged: (format) {
+                              setState(() {
+                                _calendarFormat = format;
+                              });
+                            },
+                            onPageChanged: (focusedDay) {
+                              _focusedDay = focusedDay;
+                            },
+                          ),
+                        );
                     },
                   ),
                 ),
               ),
-            ),
-            Column(
-              children: [
-                SizedBox(height: 20),
-                Text("Select Time", style: GoogleFonts.lora(
+              SizedBox(height: 20),
+              Text("Select Time", style: GoogleFonts.lora(
                   fontWeight: FontWeight.w400,
                   fontStyle: FontStyle.italic,
                   fontSize: 22.sp
-                ),),
-                SizedBox(height: 20.h,),
-                Row(
-                  children: [
-                    Material(
-                      elevation: 0.5,
-                      child: Container(
-                          height: 58.h,
-                          width: 45.h,
-                          color: Colors.white,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(_selectedDay!=null?selectedMonth(_selectedDay!.month.toString()):selectedMonth(DateTime.now().month.toString()),
-                                style: GoogleFonts.roboto(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w700
-                                ),),
-                              Text( _selectedDay!=null?_selectedDay!.day.toString(): DateTime.now().day.toString(), style: GoogleFonts.roboto(
-                                fontSize: 32.sp,
+              ),),
+              SizedBox(height: 20.h,),
+              Row(
+                children: [
+                  Material(
+                    elevation: 0.5,
+                    child: Container(
+                      height: 60.h,
+                      width: 45.w,
+                      color: Colors.white,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(_selectedDay!=null?selectedMonth(_selectedDay!.month.toString()):selectedMonth(DateTime.now().month.toString()),
+                            style: GoogleFonts.roboto(
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w700
-                              ),),
-                            ],
-                          ),
+                            ),),
+                          Text( _selectedDay!=null?_selectedDay!.day.toString(): DateTime.now().day.toString(), style: GoogleFonts.roboto(
+                              fontSize: 32.sp,
+                              fontWeight: FontWeight.w700
+                          ),),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 10.w,),
-                    Container(
-                      height: 32.h,
-                      width: 1.5,
+                  ),
+                  SizedBox(width: 10.w,),
+                  Container(
+                    height: 32.h,
+                    width: 1.5.w,
+                    color: Colors.black,
+                  ),
+                  SizedBox(width: 10.w,),
+                  Material(
+                    elevation: 0.5,
+                    child: Container(
+                      height: 62.h,
+                      width: 50.w,
+                      color: Colors.white,
+                      child: TextFormField(
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$')),
+                        ],
+                        controller: _HourController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        cursorColor: MyColors.primaryColor,
+                        // initialValue: DateTime.now().hour.toString(),
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 43.sp,
+                          color: Colors.black,
+                        ),
+                        onChanged: (value){
+                          if(value.isNotEmpty){
+                            final intValue=int.parse(value);
+                            if(intValue>24){
+                              _HourController.clear();
+                            }
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.w,),
+                  Container(
+                    height: 40.h,
+                    width: 10.w,
+                    child: Text(":", style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 43.sp,
                       color: Colors.black,
                     ),
-                    SizedBox(width: 10.w,),
-                    Material(
-                      elevation: 0.5,
-                      child: Container(
-                        height: 58.h,
-                        width: 45.h,
-                        color: Colors.white,
-                        child: TextFormField(
-                          keyboardType: TextInputType.phone,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
-                            FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$')),
-                          ],
-                          controller: _HourController,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                            ),
-                          cursorColor: MyColors.primaryColor,
-                          // initialValue: DateTime.now().hour.toString(),
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 43.sp,
-                            color: Colors.black,
-                          ),
-                          onChanged: (value){
-                            if(value.isNotEmpty){
-                              final intValue=int.parse(value);
-                              if(intValue>24){
-                                _HourController.clear();
-                              }
-                            }
-                          },
-                        ),
-                      ),
                     ),
-                    SizedBox(width: 10.w,),
-                    Container(
-                      height: 32.h,
-                      width: 10.w,
-                      child: Text(":", style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 43.sp,
-                        color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10.w,),
-                    Material(
-                      elevation: 0.5,
-                      child: Container(
-                        height: 58.h,
-                        width: 70.h,
-                        color: Colors.white,
-                        child: TextFormField(
-                          controller: _MinuteController,
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$'))
-                          ],
-                          cursorColor: MyColors.primaryColor,
-                          // initialValue: DateTime.now().hour.toString(),
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 43.sp,
-                            color: Colors.black,
-                          ),
-                          onChanged: (value){
-                            int intValue= int.parse(value);
-                            if(intValue>60){
-                              _MinuteController.clear();
-                            }
-                          },
-                          keyboardType: TextInputType.phone,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10.w,),
-
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 60.h),
-                  child: Container(
-                    height: 45.h,
-                    width: 300.w,
-                    child: ElevatedButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return TotalOverview(selectedPrice: widget.selectedPrice, salonName: widget.salonName, salonImg: widget.salonImg,);
-                      }));
-                    }, child: Text(
-                      "Fix Schedule", style: GoogleFonts.lato(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white
-                    ),
-                    ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(MyColors.primaryColor)
-                      ),),
                   ),
+                  SizedBox(width: 10.w,),
+                  Material(
+                    elevation: 0.5,
+                    child: Container(
+                      height: 62.h,
+                      width: 70.w,
+                      color: Colors.white,
+                      child: TextFormField(
+                        controller: _MinuteController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r'^[0-9]{0,2}$'))
+                        ],
+                        cursorColor: MyColors.primaryColor,
+                        // initialValue: DateTime.now().hour.toString(),
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 43.sp,
+                          color: Colors.black,
+                        ),
+                        onChanged: (value){
+                          int intValue= int.parse(value);
+                          if(intValue>60){
+                            _MinuteController.clear();
+                          }
+                        },
+                        keyboardType: TextInputType.phone,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.w,),
+
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 40.h),
+                child: Container(
+                  height: 45.h,
+                  width: 300.w,
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return TotalOverview(selectedPrice: widget.selectedPrice, salonName: widget.salonName, salonImg: widget.salonImg,);
+                    }));
+                  }, child: Text(
+                    "Fix Schedule", style: GoogleFonts.lato(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white
+                  ),
+                  ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(MyColors.primaryColor)
+                    ),),
                 ),
-              ],
-            )
-          ],
+              ),
+              SizedBox(height: 10.h,)
+            ],
+          ),
         ),
       ),
     );
