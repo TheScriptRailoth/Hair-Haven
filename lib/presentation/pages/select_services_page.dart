@@ -5,7 +5,9 @@ import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/schedule_appointment_page.dart';
 class SelectServicesPage extends StatefulWidget {
   static List<String> selectedItems=[];
-  const SelectServicesPage({super.key});
+  final String salonImg;
+  final String salonName;
+  const SelectServicesPage({Key?key, required this.salonImg, required this.salonName}):super(key: key);
   @override
   State<SelectServicesPage> createState() => _SelectServicesPageState();
 }
@@ -86,7 +88,7 @@ class _SelectServicesPageState extends State<SelectServicesPage> {
                 width: 300.w,
                 child: ElevatedButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ScheduleAppointmentScreen(selectedPrice: selectedPrice);
+                    return ScheduleAppointmentScreen(selectedPrice: selectedPrice, salonImg: widget.salonImg, salonName: widget.salonName,);
                   }));
                 }, child: Text(
                   "Continue", style: GoogleFonts.lato(

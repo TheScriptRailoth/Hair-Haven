@@ -7,8 +7,9 @@ import 'package:hair_haven/presentation/pages/payment-screens/digital_payment_sc
 import 'package:hair_haven/presentation/pages/select_services_page.dart';
 class TotalOverview extends StatefulWidget {
   final Map<int, String> selectedPrice;
-
-  TotalOverview({Key?key, required this.selectedPrice}):super(key: key);
+  final String salonName;
+  final String salonImg;
+  TotalOverview({Key?key, required this.selectedPrice, required this.salonImg, required this.salonName}):super(key: key);
   
   @override
   State<TotalOverview> createState() => _TotalOverviewState();
@@ -51,7 +52,7 @@ class _TotalOverviewState extends State<TotalOverview> {
                           height: 81.h,
                           width: 81.w,
                           child: Image.asset(
-                            'assets/images/premium_salon.png',
+                            widget.salonImg,
                             fit: BoxFit.contain,
                           ),
                           decoration: BoxDecoration(
@@ -62,7 +63,7 @@ class _TotalOverviewState extends State<TotalOverview> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Premium Salon", style: GoogleFonts.lato(
+                            Text(widget.salonName, style: GoogleFonts.lato(
                               fontWeight: FontWeight.w700,
                               fontSize: 18.sp,
                             ),),
@@ -339,25 +340,44 @@ class _TotalOverviewState extends State<TotalOverview> {
                               height: 45.h,
                               width: 160.w,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(10.r), bottomRight: Radius.circular(10.r)),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10.r),
+                                  bottomRight: Radius.circular(10.r),
+                                ),
                               ),
                               child: TextButton(
-                                onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                                    return DigitalPaymentScreen( totalAmount: formatTOTAL,);
-                                  }));
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) {
+                                      return DigitalPaymentScreen(totalAmount: formatTOTAL, salonImg: widget.salonImg, salonName: widget.salonName,);
+                                    }),
+                                  );
                                 },
-                                child: Text("PROCEED TO PAY", style: GoogleFonts.lora(
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(MyColors.primaryColor),
+                                  padding: MaterialStateProperty.all(EdgeInsets.zero),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10.r),
+                                        bottomRight: Radius.circular(10.r),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                child: Text(
+                                  "PROCEED TO PAY",
+                                  style: GoogleFonts.lora(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12.sp,
-                                    fontStyle: FontStyle.italic
-                                ),),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(MyColors.primaryColor)
+                                    fontStyle: FontStyle.italic,
+                                  ),
                                 ),
                               ),
                             ),
+
                           ],
                         ),
                       ],

@@ -12,8 +12,9 @@ import '../../core/theme/mycolors.dart';
 
 class ScheduleAppointmentScreen extends StatefulWidget {
   final Map<int, String> selectedPrice;
-
-  const ScheduleAppointmentScreen({Key? key, required this.selectedPrice}) : super(key: key);
+  final String salonName;
+  final String salonImg;
+  const ScheduleAppointmentScreen({Key? key, required this.selectedPrice, required this.salonName, required this.salonImg}) : super(key: key);
 
   @override
   State<ScheduleAppointmentScreen> createState() =>
@@ -331,7 +332,7 @@ class _ScheduleAppointmentScreenState extends State<ScheduleAppointmentScreen> {
                     width: 300.w,
                     child: ElevatedButton(onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return TotalOverview(selectedPrice: widget.selectedPrice,);
+                        return TotalOverview(selectedPrice: widget.selectedPrice, salonName: widget.salonName, salonImg: widget.salonImg,);
                       }));
                     }, child: Text(
                       "Fix Schedule", style: GoogleFonts.lato(

@@ -7,7 +7,9 @@ import 'package:hair_haven/presentation/pages/payment-screens/payment_complete_s
 import 'package:velocity_x/velocity_x.dart';
 class PaymentAmountScreen extends StatefulWidget {
   final String totalAmount;
-  const PaymentAmountScreen({Key? key, required this.totalAmount}):super(key: key);
+  final String salonName;
+  final String salonImg;
+  const PaymentAmountScreen({Key? key, required this.totalAmount, required this.salonName, required this.salonImg}):super(key: key);
 
   @override
   State<PaymentAmountScreen> createState() => _PaymentAmountScreenState();
@@ -60,26 +62,41 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+        child: ListView(
           children: [
-              Text("Enter Amount", style: GoogleFonts.montserrat(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff3A3A3A)
-              ),),
-              SizedBox(height: 20.h,),
-              TextFormField(
-                controller: _amountController,
-                textAlign: TextAlign.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Enter Amount", style: GoogleFonts.montserrat(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff3A3A3A)
+                  ),),
+                ],
               ),
               SizedBox(height: 20.h,),
-              Text("To", style: GoogleFonts.montserrat(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w400,
-                color: MyColors.primaryColor
-              ),),
+              TextFormField(
+                readOnly: true,
+                controller: _amountController,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.montserrat(
+                    fontSize: 36.sp,
+                    fontWeight: FontWeight.w700,
+                    color: MyColors.primaryColor
+                ),
+              ),
+              SizedBox(height: 20.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("To", style: GoogleFonts.montserrat(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w400,
+                    color: MyColors.primaryColor
+                  ),),
+                ],
+              ),
               SizedBox(height: 5.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -93,18 +110,18 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100.r),
-                      child: Image.asset('assets/images/premium_salon_bg.png', fit: BoxFit.cover,),
+                      child: Image.asset(widget.salonImg, fit: BoxFit.cover,),
                     ),
                   ),
                   SizedBox(width: 20.w,),
-                  Text("Premium Salon", style: GoogleFonts.montserrat(
+                  Text(widget.salonName, style: GoogleFonts.montserrat(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w400,
                     color: MyColors.primaryColor
                   ),),
                 ],
               ),
-              SizedBox(height: 40.h,),
+              SizedBox(height: 30.h,),
               Expanded(
                 child: Padding(
                   padding:  EdgeInsets.all(10.0),
@@ -174,6 +191,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
 
                         ],
                       ),
+                      SizedBox(height: 5.h,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -236,6 +254,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 5.h,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -298,6 +317,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 5.h,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -388,6 +408,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                 ),
               ),
             ),
+              SizedBox(height: 10.h,)
           ],
         ),
       ),

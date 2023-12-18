@@ -6,7 +6,9 @@ import 'package:hair_haven/presentation/pages/payment-screens/amount_screen.dart
 import 'package:hair_haven/presentation/pages/payment-screens/total_overview_screen.dart';
 class DigitalPaymentScreen extends StatefulWidget {
   final String totalAmount;
-  const DigitalPaymentScreen({Key?key, required this.totalAmount}):super(key:key);
+  final String salonName;
+  final String salonImg;
+  const DigitalPaymentScreen({Key?key, required this.totalAmount, required this.salonName, required this.salonImg}):super(key:key);
 
   @override
   State<DigitalPaymentScreen> createState() => _DigitalPaymentScreenState();
@@ -41,6 +43,9 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: Stack(
         children: [
@@ -145,7 +150,7 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                   child: TextButton(
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return PaymentAmountScreen(totalAmount: widget.totalAmount,);
+                        return PaymentAmountScreen(totalAmount: widget.totalAmount, salonImg: widget.salonImg, salonName: widget.salonName,);
                       }));
                     }, child: Text("Next", style: GoogleFonts.lora(
                         fontWeight: FontWeight.w600,
@@ -212,7 +217,7 @@ class _DigitalPaymentScreenState extends State<DigitalPaymentScreen> {
                       child: TextButton(
                         onPressed: (){
                           Navigator.push(context,MaterialPageRoute(builder: (context){
-                            return PaymentAmountScreen(totalAmount: widget.totalAmount);
+                            return PaymentAmountScreen(totalAmount: widget.totalAmount, salonName: widget.salonName, salonImg: widget.salonImg,);
                           }));
                         }, child: Text("Next", style: GoogleFonts.lora(
                           fontWeight: FontWeight.w600,

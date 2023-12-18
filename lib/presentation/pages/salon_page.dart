@@ -225,7 +225,7 @@ class _SalonPageState extends State<SalonPage> {
               ),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return SelectServicesPage();
+                  return SelectServicesPage(salonName: widget.SalonName, salonImg: widget.SalonImg,);
                 }));
               },
               child: Text("Book Now", style: GoogleFonts.lora(
