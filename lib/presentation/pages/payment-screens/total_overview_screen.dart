@@ -36,7 +36,10 @@ class _TotalOverviewState extends State<TotalOverview> {
     String formatTOTAL= calculateTotal(widget.selectedPrice);
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (BuildContext context, int index) {
+              return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 10.h,),
@@ -164,9 +167,9 @@ class _TotalOverviewState extends State<TotalOverview> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Text("Bill Details", style: GoogleFonts.lora(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16.sp,
-                        color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16.sp,
+                      color: Colors.black,
                     ),
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
@@ -229,33 +232,33 @@ class _TotalOverviewState extends State<TotalOverview> {
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    'Discount by coupon',
-                                    style: GoogleFonts.lora(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Discount by coupon',
+                                style: GoogleFonts.lora(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
-                                SizedBox(width: 20.w),
-                                Text(
-                                  '\$25',
-                                  style: GoogleFonts.lora(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            SizedBox(height: 10.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                  Expanded(
+                            SizedBox(width: 20.w),
+                            Text(
+                              '\$25',
+                              style: GoogleFonts.lora(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
                               child: Text(
                                 'Tax',
                                 style: GoogleFonts.lora(
@@ -264,17 +267,17 @@ class _TotalOverviewState extends State<TotalOverview> {
                                 ),
                               ),
                             ),
-                                  SizedBox(width: 20.w),
-                                  Text(
+                            SizedBox(width: 20.w),
+                            Text(
                               "\$ "+(totalPrice*18/100).toString(),
                               style: GoogleFonts.lora(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            ],
+                          ],
                         ),
-                            SizedBox(height: 10.h),
+                        SizedBox(height: 10.h),
                       ],
                     ),
                   ),
@@ -361,7 +364,9 @@ class _TotalOverviewState extends State<TotalOverview> {
                     ),
                   )
                 ],
-              )
+              );
+          },
+        )
         ),
     );
   }
