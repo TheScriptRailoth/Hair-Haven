@@ -122,8 +122,7 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                 ],
               ),
               SizedBox(height: 30.h,),
-              Expanded(
-                child: Padding(
+              Padding(
                   padding:  EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -379,7 +378,6 @@ class _PaymentAmountScreenState extends State<PaymentAmountScreen> {
                     ],
                   )
                 ),
-              ),
               SizedBox(height: 20.h,),
               Container(
               height: 48.h,

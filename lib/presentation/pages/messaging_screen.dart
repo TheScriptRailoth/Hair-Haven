@@ -105,7 +105,216 @@ class _MessagingScreenState extends State<MessagingScreen> {
                   Expanded(
                       child: ListView(
                         children: [
-                          SendMessageWidget(msg: "Hello How are you",),
+                          SizedBox(height: 50.h,),
+
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 106.w,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffFEA051),
+                                    borderRadius: BorderRadius.only(bottomRight:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Hey mate!",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 170.w,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffFEA051),
+                                      borderRadius: BorderRadius.only(bottomRight:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Come to barber now",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text('12:31 PM', style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.sp,
+                                color: Color(0xffBDBDBD),
+                              ),)
+                            ],
+                          ),
+
+                          SizedBox(height: 10.h,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 185.w,
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(bottomLeft:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Alright bro wait for sec.",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 250.w,
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(bottomLeft:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Not so sure about my hair style 😂",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('12:33 PM', style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.sp,
+                                color: Color(0xffBDBDBD),
+                              ),)
+                            ],
+                          ),
+
+                          SizedBox(height: 10.h,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 129.w,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffFEA051),
+                                      borderRadius: BorderRadius.only(bottomRight:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Lemme see it!",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 155.w,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffFEA051),
+                                      borderRadius: BorderRadius.only(bottomRight:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Send me your hair",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text('12:34 PM', style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.sp,
+                                color: Color(0xffBDBDBD),
+                              ),)
+                            ],
+                          ),
+
+                          SizedBox(height: 10.h,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Container(
+                                  height: 44.h,
+                                  width: 82.w,
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(bottomLeft:Radius.circular(15.r), topRight: Radius.circular(15.r), topLeft: Radius.circular(15.r))
+                                  ),
+                                  child: Center(
+                                    child: Text("Got it!",style: GoogleFonts.dmSans(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('12:33 PM', style: GoogleFonts.dmSans(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.sp,
+                                color: Color(0xffBDBDBD),
+                              ),)
+                            ],
+                          ),
                         ],
                       )
                   ),
