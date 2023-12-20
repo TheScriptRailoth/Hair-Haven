@@ -62,24 +62,28 @@ class _BookingScreenState extends State<BookingScreen> {
         ),
         body: TabBarView(
           children: [
-            BookedBarberDetails.BookedBarberNames.isNotEmpty?ListView.builder(
-              itemCount: BookedBarberDetails.BookedBarberNames.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Column(
-                  children: [
-                    UpcomingBookingWidget(
-                        BarberName: BookedBarberDetails.BookedBarberNames[index],
-                        BarberAddress: BookedBarberDetails.BookedBarberAdds[index],
-                        BarberProfileImg: BookedBarberDetails.BookedBarberProfiles[index],
-                        BarberServiceId: BookedBarberDetails.BookedBarberServiceIds[index],
-                        BarberTitle: BookedBarberDetails.BookedBarberTitles[index],
-                        BookingDate: BookedBarberDetails.BookedBarberDates[index],
-                        BookingTime: BookedBarberDetails.BookedBarberTimes[index]
-                    ),
-                  ],
-                );
-              },
-            ):Center(child: Text("No Bookings Yet!"),),
+            BookedBarberDetails.BookedBarberNames.isEmpty?Center(child: Text("No Bookings Yet!"),):Container(
+              height: MediaQuery.sizeOf(context).height,
+              width: MediaQuery.sizeOf(context).width,
+              child: ListView.builder(
+                itemCount: BookedBarberDetails.BookedBarberNames.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      UpcomingBookingWidget(
+                          BarberName: BookedBarberDetails.BookedBarberNames[index],
+                          BarberAddress: BookedBarberDetails.BookedBarberAdds[index],
+                          BarberProfileImg: BookedBarberDetails.BookedBarberProfiles[index],
+                          BarberServiceId: BookedBarberDetails.BookedBarberServiceIds[index],
+                          BarberTitle: BookedBarberDetails.BookedBarberTitles[index],
+                          BookingDate: BookedBarberDetails.BookedBarberDates[index],
+                          BookingTime: BookedBarberDetails.BookedBarberTimes[index]
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
             // SingleChildScrollView(
             //   scrollDirection: Axis.vertical,
             //   child: Column(
