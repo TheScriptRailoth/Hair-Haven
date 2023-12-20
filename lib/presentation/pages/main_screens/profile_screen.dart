@@ -21,6 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Profile", style: GoogleFonts.lora(
           fontSize: 18.sp,
           fontWeight: FontWeight.w400,

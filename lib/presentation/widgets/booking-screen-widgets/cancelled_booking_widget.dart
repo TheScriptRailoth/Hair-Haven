@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/mycolors.dart';
-import '../../pages/cancel_booking_screen.dart';
+import '../../pages/barber-booking-screens/cancel_booking_screen.dart';
 class CancelledBookingWidget extends StatefulWidget {
   final String BarberName;
   final String BarberTitle;

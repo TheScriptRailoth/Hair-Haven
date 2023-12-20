@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
-import 'package:hair_haven/presentation/pages/select_services_page.dart';
+import 'package:hair_haven/presentation/pages/salon-booking-screens/select_services_page.dart';
 import 'package:hair_haven/presentation/widgets/reviewer_widget.dart';
 class SalonPage extends StatefulWidget {
   final String SalonName;

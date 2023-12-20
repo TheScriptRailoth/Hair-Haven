@@ -4,7 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/barber-booking-screens/date_and_time_screen.dart';
-import 'package:hair_haven/presentation/pages/cancel_booking_screen.dart';
+import 'package:hair_haven/presentation/pages/barber-booking-screens/cancel_booking_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/theme/mycolors.dart';
@@ -25,6 +25,7 @@ class _BookingScreenState extends State<BookingScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text("Bookings", style: GoogleFonts.lora(
               fontSize: 18.sp,
               fontWeight: FontWeight.w400,

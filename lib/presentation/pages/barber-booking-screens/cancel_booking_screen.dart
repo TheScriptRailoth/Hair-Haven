@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/presentation/pages/barber-booking-screens/date_and_time_screen.dart';
 import 'package:hair_haven/presentation/pages/main_screens/bookings_screen.dart';
+import 'package:hair_haven/presentation/widgets/bottom_nav_bar.dart';
 
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 class CancelBookingScreen extends StatefulWidget {
   final String BarberName;
   final String BarberTitle;
@@ -95,6 +96,10 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                       removeLastOccurrence(BookedBarberDetails.BookedBarberProfiles, widget.BarberProfile);
                       removeLastOccurrence(BookedBarberDetails.BookedBarberAdds, widget.BarberAddress);
                       removeLastOccurrence(BookedBarberDetails.BookedBarberTitles, widget.BarberTitle);
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return BottomNavBar();
+                      }));
 
                 }, child: Text(
                   "Continue", style: GoogleFonts.lato(

@@ -8,7 +8,7 @@ import 'package:hair_haven/presentation/pages/payment-screens/total_overview_scr
 import 'package:table_calendar/table_calendar.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../core/theme/mycolors.dart';
+import '../../../core/theme/mycolors.dart';
 
 class ScheduleAppointmentScreen extends StatefulWidget {
   final Map<int, String> selectedPrice;

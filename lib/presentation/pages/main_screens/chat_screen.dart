@@ -57,9 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: MyColors.primaryColor
-        ),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {  },

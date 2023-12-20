@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hair_haven/core/theme/mycolors.dart';
 import 'package:hair_haven/presentation/pages/payment-screens/digital_payment_screen.dart';
-import 'package:hair_haven/presentation/pages/select_services_page.dart';
+import 'package:hair_haven/presentation/pages/salon-booking-screens/select_services_page.dart';
 class TotalOverview extends StatefulWidget {
   final Map<int, String> selectedPrice;
   final String salonName;
