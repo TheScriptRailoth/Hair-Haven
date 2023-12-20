@@ -23,47 +23,43 @@ class _BarberProfileScreenState extends State<BarberProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              height: 35.h,
+              width: 35.w,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: MyColors.primaryColor
+              ),
+            ),
+            Center(
+                child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                }, icon: Icon(  CupertinoIcons.arrow_left, color: Colors.white, size: 22, ),
+                )
+            )
+          ],
+        ),
+        elevation: 0.0,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        title: Text("Profile", style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 24.sp,
+            color: Colors.black
+        )),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
-                child: Expanded(
-                  child: Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            height: 35.h,
-                            width: 35.w,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: MyColors.primaryColor
-                            ),
-                          ),
-                          Center(
-                              child: Icon(CupertinoIcons.arrow_left, color: Colors.white, size: 22,)
-                          )
-                        ],
-                      ),
-                      SizedBox(width: 90.w,),
-                      Row(
-                        children: [
-                          Text("Profile", style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24.sp
-                          ),textAlign: TextAlign.center,),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 30.h,),
+              SizedBox(height: 10.h,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
