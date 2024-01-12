@@ -147,22 +147,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(
-                            'assets/apple-logo.png',
-                            width: 27.w,
-                            height: 27.h,
+                        IconButton(
+                          onPressed: () {  },
+                          icon: Image.asset(
+                              'assets/apple-logo.png',
+                              width: 27.w,
+                              height: 27.h,
+                          ),
                         ),
-                        Image.asset(
+                        IconButton(
+                          onPressed: () {  },
+                          icon: Image.asset(
                             'assets/google.png',
                             width: 27.w,
                             height: 27.h,
+                          ),
                         ),
-                        Image.asset(
-                            'assets/facebook.png',
-                            width: 27.w,
-                            height: 27.h,
+                        IconButton(
+                          onPressed: (){},
+                            icon: Image.asset(
+                              'assets/facebook.png',
+                              width: 27.w,
+                              height: 27.h,
+                          ),
                         ),
-
                       ],
                     ),
                   )
